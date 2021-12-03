@@ -1,5 +1,6 @@
 # Projet-nsi-SLC
 DEPOT
+Charlotte LORILLARD, Luna TORRES NAVARRO, Stella CARIDI
 Sujet : création d'un ou plusieurs mini-jeux dans un petit monde en 2D tout rose avec des sucreries où on se ballade et on peut accéder aux jeux en  rentrant dans une maison. 
 
 Idée mini-jeux:
