@@ -1,6 +1,6 @@
 # Projet-nsi-SLC
 DEPOT
-Sujet : création d'un ou plusieurs mini-jeux dans un petit monde en 2D tout rose avec des sucreries où on se ballade et on peut accéder aux jeux en  rentrant dans une maison. 
+Sujet 1: création d'un ou plusieurs mini-jeux dans un petit monde en 2D tout rose avec des sucreries où on se ballade et on peut accéder aux jeux en  rentrant dans une maison. 
 
 Idée mini-jeux:
   - on rentrerait dans une maison en pain d'épice. Il y aurait un chariot en bonbons qui nous entraine sur des rails cassés (sauter pour survivre) avec des sucres d'orges qui seraient la monnaie du jeu.
