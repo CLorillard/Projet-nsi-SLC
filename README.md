@@ -15,7 +15,7 @@ Idée mini-jeux:
 Sujet 2: Un jeux style temple run mais on serait dans un labyrinthe, donc le joueur devrait retenir l'ordre de virages pour sortir. Game over lorsque l'on est dans un cul de sac. Le deplacement se ferait avec les flèches droites et gauche. en 2D vu de face
   
   
-  SUJET:Jeu de labyrinthe
+  Jeu de labyrinthe
   - 3 niveaux : facile, moyen, difficile:
       - La longueur du labyrinthe sera plus longue et le nombre d'issus plus grand selon le niveau de difficulté choisi.
   - Tant que le niveau n'est pas réussi : 
