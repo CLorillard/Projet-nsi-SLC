@@ -27,7 +27,7 @@ Idée mini-jeux:
   - un seul joueur (personnage pain d'épice)
   - petite musique
   - pas de retour en arrière quand on est dans une impasse on perd
-  - monnaie récolter dans le jeu : débloquer le niveau supérieur
+  - monnaie récoltée dans le jeu permet de débloquer le niveau supérieur
   - se joue avec la souris 
   - vu de dos 
   - jeu en pixel
