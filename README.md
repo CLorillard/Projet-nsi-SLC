@@ -12,7 +12,8 @@ Idée mini-jeux:
   - un objet dans un verre retourné, trois verres dont deux vides, ils tournent et il faut retrouver le bonbon qui sera sous un le bon verre. en 2D vu de face
 
 
-**_Sujet 2_** : Un jeux style temple run mais on serait dans un labyrinthe, donc le joueur devrait retenir l'ordre de virages pour sortir. Game over lorsque l'on est dans un cul de sac. Le deplacement se ferait avec les flèches droites et gauche. en 2D vu de face
+**_SUJET 2_** : 
+   Un jeux style temple run mais on serait dans un labyrinthe donc le joueur devrait retenir l'ordre de virages pour sortir. Game over lorsque l'on est dans un cul de sac. Le deplacement se ferait avec les flèches droites et gauche. en 2D vu de face
   
   
   Jeu de labyrinthe
