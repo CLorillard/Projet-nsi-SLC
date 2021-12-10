@@ -26,3 +26,6 @@ Sujet 2: Un jeux style temple run mais on serait dans un labyrinthe, donc le jou
 http://nsinfo.yo.fr/nsi_term_projet_2.html
 
 https://isn-icn-ljm.pagesperso-orange.fr/PROJETS/co/section_labyrinthe.html
+
+Exemples:
+https://youtu.be/KlBKYQUbtkQ
