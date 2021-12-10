@@ -17,17 +17,19 @@ Sujet 2: Un jeux style temple run mais on serait dans un labyrinthe, donc le jou
   
   SUJET:Jeu de labyrinthe
   - 3 niveaux : facile, moyen, difficile:
-       La longueur du labyrinthe sera plus longue et le nombre d'issus plus grand selon le niveau de difficulté choisi.
+           - La longueur du labyrinthe sera plus longue et le nombre d'issus plus grand selon le niveau de difficulté choisi.
   - Tant que le niveau n'est pas réussi : 
-        le labyrinthe reste le même pour permettre au joueur de memoriser le chemin a suivre.
-    sinon :
-      Le labyrinthe se mélange lorsque le joueur réussi.
-      Donc ,le joueur peut choisir de refaire le même niveau mais le labyrinthe ne sera plus le même.
+           - le labyrinthe reste le même pour permettre au joueur de memoriser le chemin a suivre.
+      - sinon :
+     -  Le labyrinthe se mélange lorsque le joueur réussi.
+                  - Donc ,le joueur peut choisir de refaire le même niveau mais le labyrinthe ne sera plus le même.
  
-Exemples: 
+Exemples programmations : 
 
 http://nsinfo.yo.fr/nsi_term_projet_2.html
 
 https://isn-icn-ljm.pagesperso-orange.fr/PROJETS/co/section_labyrinthe.html
+
+Exemples jeux : 
 
 https://youtu.be/KlBKYQUbtkQ
