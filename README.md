@@ -13,7 +13,7 @@ Idée mini-jeux:
 
 
 **_SUJET 2_** : 
-   Un jeux style temple run mais on serait dans un labyrinthe donc le joueur devrait retenir l'ordre de virages pour sortir. Game over lorsque l'on est dans un cul de sac. Le deplacement se ferait avec les flèches droites et gauche. en 2D vu de face
+   Un jeux style temple run en 2D mais on serait dans un labyrinthe donc le joueur devrait retenir l'ordre de virages pour sortir. Game over lorsque l'on est dans un cul de sac.  
   
   
   Jeu de labyrinthe
@@ -28,6 +28,10 @@ Idée mini-jeux:
   - petite musique
   - pas de retour en arrière quand on est dans une impasse on perd
   - monnaie récolter dans le jeu : débloquer le niveau supérieur
+  - se joue avec la souris 
+  - vu de dos 
+  - jeu en pixel
+  - en 2D
  
 Exemples programmations : 
 
