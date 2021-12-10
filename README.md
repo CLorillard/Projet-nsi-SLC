@@ -23,7 +23,10 @@ Sujet 2: Un jeux style temple run mais on serait dans un labyrinthe, donc le jou
   - sinon :
      -  Le labyrinthe se mélange lorsque le joueur réussi.
      - Donc ,le joueur peut choisir de refaire le même niveau mais le labyrinthe ne sera plus le même.
-  - un seul joueur, petite musique, pas de retour en arrière quand on est dans une impasse on perd 
+  - un seul joueur (personnage pain d'épice)
+  - petite musique
+  - pas de retour en arrière quand on est dans une impasse on perd
+  - monnaie récolter dans le jeu : débloquer le niveau supérieur
  
 Exemples programmations : 
 
@@ -37,4 +40,4 @@ https://youtu.be/KlBKYQUbtkQ
 
 Pygame :
 
-
+https://pub.phyks.me/sdz/sdz/interface-graphique-pygame-pour-python.html
