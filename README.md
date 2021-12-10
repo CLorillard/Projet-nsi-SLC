@@ -46,6 +46,7 @@ https://youtu.be/KlBKYQUbtkQ
 Exemples fond :
 
 https://media.istockphoto.com/vectors/cartoon-fantasy-candy-land-location-vector-id544442788?k=20&m=544442788&s=170667a&w=0&h=-IJy7YTMo0C4uqlZslECMfP1HqxYY2a-9jaL7-vT6sI=
+https://www.stickpng.com/fr/img/dessins-animes/shrek/ti-biscuit
 
 Pygame :
 
