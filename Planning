@@ -9,9 +9,9 @@ Tâches a réaliser:
 ✓- recherche de la musique  SLC  
 - design de la monnaie   S
 - systeme comptage de la monnaie  S
-- script pour que la monnaie apparaisse sur la map  
+- script pour que la monnaie apparaisse sur la map S
 - écrire règle du jeux et son icône "?" C
-- bouton rejouer si perdu + script
+- bouton rejouer si perdu + script L
 - script deplacement du personnage C
 - script d'apparition des maps au hasard
 - fenêtre game over SLC ( si perdu coller le fond )
@@ -30,8 +30,8 @@ Semaine 7 : script enchaînement des maps
 Semaine 8 : script enchaînement des maps 
 Semaine 9 : positionnement monnaie sur les maps
 Semaine 10 : niveau 1 maps déffilement au hasards + game over et bouton rejouer si rencontre un mur 
-Semaine 11 : niveau de 2 maps déffilement au hasards
-Semaine 12 : niveau de 3 maps déffilement au hasards
+Semaine 11 : niveau de 2 maps déffilement au hasards  + game over et bouton rejouer si rencontre un mur
+Semaine 12 : niveau de 3 maps déffilement au hasards  + game over et bouton rejouer si rencontre un mur
 Semaine 13 : finitions
 Semaine 14 : test de vérification
 Semaine 15 : test de vérification
