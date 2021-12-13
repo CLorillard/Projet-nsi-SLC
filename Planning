@@ -19,18 +19,19 @@ Tâches a réaliser:
 si temps:
 -création d'obstacles 
 -temps limite de complétion
+-création d'un compte pour pouvoir garder la monnaie
 
 On fera tout ce qui est design à la maison et le Python en classe.
 Semaine 4 : création de la première map et faire bouger le personnage dessus avec flèche du clavier
 Semaine 5 : écriture règle du jeux + écriture code compteur + écriture script déblocage de niveaux
 Semaine 6 : sur le premier écran : mettre la fiche aide avec la redirection  + affichage compteur 
 + icône des jeux avec quand on clique option de déblocage niveau (si acheter rediriger vers une autre fenêtre qui sera plus tard le labirynthe correspondant.)
-Semaine 7 :
-Semaine 8 :
-Semaine 9 :
-Semaine 10 :
-Semaine 11 :
-Semaine 12 :
+Semaine 7 : sctipt enchaînement des maps
+Semaine 8 : sctipt enchaînement des maps 
+Semaine 9 : positionnement monnaie sur les maps
+Semaine 10 : niveau 1 maps déffilement au hasards + game over et bouton rejouer si rencontre un mur 
+Semaine 11 : niveau de 2 maps déffilement au hasards
+Semaine 12 : niveau de 3 maps déffilement au hasards
 Semaine 13 : 
 Semaine 14 : test de vérification
 Semaine 15 : test de vérification
