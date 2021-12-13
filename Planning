@@ -1,0 +1,20 @@
+Tâches a réaliser:
+
+- création du personnage (design+position difféerentes)
+- creation des 6 maps(chemin tout droit,cul de sac, chemin 2 issus, chemin 3 issus, chemin venant de gauche, chemin venant de droite)
+- création logo du debut
+- création icône des 3 niveaux
+- script pour débloquer un niveau
+- recherche de la musique
+- design de la monnaie
+- systeme comptage de la monnaie
+- script pour que la monnaie apparaisse aléatoirement sur la map
+- écrire règle du jeux et son icône "?"
+- bouton rejouer
+- script deplacement du personnage 
+- script d'apparition des maps au hasard
+- fenêtre game over 
+
+si temps:
+-création d'obstacles 
+-temps limite de complétion
