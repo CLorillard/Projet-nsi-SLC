@@ -5,7 +5,7 @@ Tâches a réaliser:
 - map principal (après logo quand arriver dans le jeux)
 - création logo du debut  L
 - création icône des 3 niveaux L
-- script pour débloquer un niveau C
+- script pour débloquer un niveau C/L
 - recherche de la musique  SLC
 - design de la monnaie   S
 - systeme comptage de la monnaie  S
@@ -21,9 +21,16 @@ si temps:
 -temps limite de complétion
 
 On fera tout ce qui est design à la maison et le Python en classe.
-Semaine 4 : création de la première map et faire bouger le personnage dessus.
-Semaine 5 : mettre la fiche aide avec la redirection sur le premier écran + affichage compteur 
-+ icône des jeux avec quand on clique option de déblocage niveau selon nombre de monnaie. 
-( si acheter rediriger vers une autre fenêtre qui sera plus tard le labirynthe correspondant.)
-Semaine 
-
+Semaine 4 : création de la première map et faire bouger le personnage dessus avec flèche du clavier
+Semaine 5 : écriture règle du jeux + écriture code compteur + écriture script déblocage de niveaux
+Semaine 6 : sur le premier écran : mettre la fiche aide avec la redirection  + affichage compteur 
++ icône des jeux avec quand on clique option de déblocage niveau (si acheter rediriger vers une autre fenêtre qui sera plus tard le labirynthe correspondant.)
+Semaine 7 :
+Semaine 8 :
+Semaine 9 :
+Semaine 10 :
+Semaine 11 :
+Semaine 12 :
+Semaine 13 : 
+Semaine 14 : test de vérification
+Semaine 15 : test de vérification
