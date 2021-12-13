@@ -2,7 +2,7 @@ C = Charlotte ; L = Luna ; S = Stella
 Tâches a réaliser:
 - création du personnage (design + position différentes : 3 )   S
 - creation des 6 maps(chemin tout droit,cul de sac, chemin 2 issus, chemin 3 issus, chemin venant de gauche, chemin venant de droite) C
-- map principal (après logo quand arriver dans le jeux)
+- map principale (après logo quand arriver dans le jeux)
 - création logo du debut  L
 - création icône des 3 niveaux L
 - script pour débloquer un niveau C/L
