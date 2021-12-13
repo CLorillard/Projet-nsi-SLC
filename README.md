@@ -18,7 +18,7 @@ Idée mini-jeux:
   
   Jeu de labyrinthe
   - 3 niveaux : facile, moyen, difficile:
-      - La longueur du labyrinthe sera plus longue et le nombre d'issus plus grand selon le niveau de difficulté choisi.
+      - La longueur du labyrinthe sera plus longue et le nombre d'issus ( 3 max ) plus grand selon le niveau de difficulté choisi.
   - Tant que le niveau n'est pas réussi : 
       - le labyrinthe reste le même pour permettre au joueur de memoriser le chemin a suivre.
   - sinon :
