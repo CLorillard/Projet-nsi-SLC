@@ -1,23 +1,29 @@
+C = Charlotte ; L = Luna ; S = Stella
 Tâches a réaliser:
-- création du personnage (design+position différentes)
-- creation des 6 maps(chemin tout droit,cul de sac, chemin 2 issus, chemin 3 issus, chemin venant de gauche, chemin venant de droite)
-- création logo du debut
-- création icône des 3 niveaux
-- script pour débloquer un niveau
-- recherche de la musique
-- design de la monnaie
-- systeme comptage de la monnaie
-- script pour que la monnaie apparaisse aléatoirement sur la map
-- écrire règle du jeux et son icône "?"
-- bouton rejouer
+- création du personnage (design + position différentes : 3 )   S
+- creation des 6 maps(chemin tout droit,cul de sac, chemin 2 issus, chemin 3 issus, chemin venant de gauche, chemin venant de droite) C
+- map principal (après logo quand arriver dans le jeux)
+- création logo du debut  L
+- création icône des 3 niveaux L
+- script pour débloquer un niveau C
+- recherche de la musique  SLC
+- design de la monnaie   S
+- systeme comptage de la monnaie  S
+- script pour que la monnaie apparaisse sur la map  
+- écrire règle du jeux et son icône "?" C
+- bouton rejouer si perdu + script
 - script deplacement du personnage 
 - script d'apparition des maps au hasard
-- fenêtre game over 
+- fenêtre game over SLC ( si perdu coller le fond )
 
 si temps:
 -création d'obstacles 
 -temps limite de complétion
 
 On fera tout ce qui est design à la maison et le Python en classe.
-Semaine 1 : création de la première map et faire bouger le personnage dessus.
-Semaine 2 : mettre la fiche aide avec la redirection
+Semaine 4 : création de la première map et faire bouger le personnage dessus.
+Semaine 5 : mettre la fiche aide avec la redirection sur le premier écran + affichage compteur 
++ icône des jeux avec quand on clique option de déblocage niveau selon nombre de monnaie. 
+( si acheter rediriger vers une autre fenêtre qui sera plus tard le labirynthe correspondant.)
+Semaine 
+
