@@ -13,8 +13,8 @@ Tâches a réaliser:
 - écrire règle du jeux et son icône "?" C
 - bouton rejouer si perdu + script L
 - script deplacement du personnage C
-- script d'apparition des maps au hasard
-- fenêtre game over SLC ( si perdu coller le fond )
+- script d'apparition des maps au hasard ( chacune un enchaînement de map différente )
+- fenêtre game over SLC ( si perdu coller le fond ) L
 
 si temps:
 -création d'obstacles 
@@ -22,7 +22,8 @@ si temps:
 -création d'un compte pour pouvoir garder la monnaie
 
 On fera tout ce qui est design à la maison et le Python en classe.
-Semaine 4 : création de la première map et faire bouger le personnage dessus avec flèche du clavier + affichage map principale toute simple
+Semaine 4 : création de la première map et faire bouger le personnage dessus avec flèche du clavier(faire attention qu'il reste dans le bon
+chemin ) + affichage map principale toute simple
 Semaine 5 : écriture règle du jeux + écriture code compteur + écriture script déblocage de niveaux
 Semaine 6 : sur map principale : mettre la fiche aide avec la redirection  + affichage compteur 
 + icône des jeux avec quand on clique option de déblocage niveau (si acheter rediriger vers une autre fenêtre qui sera plus tard le labirynthe correspondant.)
