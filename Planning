@@ -15,7 +15,7 @@ Tâches a réaliser:
 - bouton rejouer si perdu + script L
 - script deplacement du personnage C
 - script d'apparition des maps au hasard ( chacune un enchaînement de map différente ) L/S
-- fenêtre game over SLC ( si perdu coller le fond ) L
+- fenêtre game over ( si perdu coller le fond ) L
 
 si temps:
 -création d'obstacles 
