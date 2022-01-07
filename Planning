@@ -13,7 +13,7 @@ Tâches a réaliser:
 - script pour que la monnaie apparaisse sur la map S
 - écrire règle du jeux et son icône "?" C
 - bouton rejouer si perdu + script L
-- script deplacement du personnage C
+- script deplacement du personnage S
 - script d'apparition des maps au hasard ( chacune un enchaînement de map différente ) L/S
 - fenêtre game over ( si perdu coller le fond ) L
 
