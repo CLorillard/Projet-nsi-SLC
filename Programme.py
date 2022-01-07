@@ -32,6 +32,9 @@ while continuer:
             if event.key == K_DOWN:	#Si "flèche bas"
             #On descend le perso
                 position_perso = position_perso.move(0,3)
+            if event.key == K_RIGHT:	#Si "flèche côté droit"
+            #On déplace le perso à droite
+                position_perso = position_perso.move(3,0)
             
             
         fenetre.blit(fond, (0,0))	
