@@ -1,5 +1,3 @@
-import pygame
-from pygame.locals import *
 
 pygame.init()
 
@@ -35,12 +33,19 @@ while continuer:
             if event.key == K_RIGHT:	#Si "flèche côté droit"
             #On déplace le perso à droite
                 position_perso = position_perso.move(3,0)
-            
+            if event.key == K_UP:	#Si "flèche haut"
+            #On monte le perso
+                position_perso = position_perso.move(0,-3)
+            if event.key == K_LEFT:	#Si "flèche gauche"
+            #On déplace le perso à gauche
+                position_perso = position_perso.move(-3,0)
             
         fenetre.blit(fond, (0,0))	
         fenetre.blit(perso, position_perso)
         #Rafraichissement
         pygame.display.flip()
-           
+            
+            
+        
 
 pygame.quit()
