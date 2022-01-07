@@ -41,8 +41,6 @@ while continuer:
         fenetre.blit(perso, position_perso)
         #Rafraichissement
         pygame.display.flip()
-            
-            
-        
+           
 
 pygame.quit()
