@@ -33,7 +33,7 @@ while True:
             pygame.quit()
         if event.type == pygame.MOUSEBUTTONDOWN:
             if largeur/2 <= mouse[0] <= largeur/2+40 and hauteur/2 <= mouse[1] <= hauteur/2+40:
-                fenetre = pygame.display.set_mode((300, 200))
+                fenetre = pygame.display.set_mode((1271, 457))
                 fenetre.blit(notice,(0,0))
                 
     mouse = pygame.mouse.get_pos()
