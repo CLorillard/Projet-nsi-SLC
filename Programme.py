@@ -7,14 +7,23 @@ pygame.init()
 fenetre = pygame.display.set_mode((640, 480))
 
 #Chargement et collage du fond
-fond = pygame.image.load(r"U:\Documents\NSI\projet\background.jpg")
+fond = pygame.image.load("image/background.jpg").convert()
 fenetre.blit(fond, (0,0))
 
 
 #Rafraîchissement de l'écran
 pygame.display.flip()
 
+
+
+#Rafraîchissement de l'écran
+pygame.display.flip()
+
 #BOUCLE INFINIE
-continuer = 1
+continuer = True
+
 while continuer:
-	continuer = int(input())
+	for event in pygame.event.get():  
+		if event.type == QUIT:     
+			continuer = False
+pygame.quit()
