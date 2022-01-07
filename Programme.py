@@ -11,10 +11,9 @@ fond = pygame.image.load("image/background.jpg").convert()
 fenetre.blit(fond, (0,0))
 
 
-#Rafraîchissement de l'écran
-pygame.display.flip()
 
-
+perso = pygame.image.load("image/perso.jpg").convert()
+fenetre.blit(perso, (200,0))
 
 #Rafraîchissement de l'écran
 pygame.display.flip()
