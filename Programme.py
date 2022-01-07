@@ -11,7 +11,7 @@ fond = pygame.image.load("image/background.jpg").convert()
 fenetre.blit(fond, (0,0))
 
 #Chargement et collage du personnage 
-perso = pygame.image.load("image/perso.jpg").convert_alpha()
+perso = pygame.image.load("image/perso.png").convert_alpha()
 position_perso = perso.get_rect()
 fenetre.blit(perso, position_perso)
 
