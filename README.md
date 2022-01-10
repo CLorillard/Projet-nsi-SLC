@@ -54,3 +54,5 @@ Pygame :
 https://pub.phyks.me/sdz/sdz/interface-graphique-pygame-pour-python.html
 
 [planning](https://github.com/CLorillard/Projet-nsi-SLC/blob/main/Planning)
+
+Fait le Vendredi 7/01: Déplacement personnage sur map et tentative de bouton pour afficher les règles du jeu.
