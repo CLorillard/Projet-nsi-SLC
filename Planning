@@ -25,7 +25,10 @@ si temps:
 On fera tout ce qui est design à la maison et le Python en classe.
 Semaine 4 : création de la première map et faire bouger le personnage dessus avec flèche du clavier(faire attention qu'il reste dans le bon
 chemin ) + affichage map principale toute simple
+Nous avons bien crée la map et le perso bouge. Aucun problème.
 Semaine 5 : écriture règle du jeux + écriture code compteur + écriture script déblocage de niveaux
+Nous avons écrits les règles et reussi a les afficher mais pas a recliquer sur le bouton et revenir a la fenetre principale. Pas de script du compteur et pas de 
+script de debloqage des niveaux.
 Semaine 6 : sur map principale : mettre la fiche aide avec la redirection  + affichage compteur 
 + icône des jeux avec quand on clique option de déblocage niveau (si acheter rediriger vers une autre fenêtre qui sera plus tard le labirynthe correspondant.)
 Semaine 7 : script enchaînement des maps
