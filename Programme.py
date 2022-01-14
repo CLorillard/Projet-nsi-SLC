@@ -16,7 +16,16 @@ position_perso = perso.get_rect()
 fenetre.blit(perso, position_perso)
 
 
+
+
+monnaie = pygame.image.load("image/sucredorge.png").convert_alpha()
+position_monnaie = monnaie.get_rect()
+fenetre.blit(monnaie, (300,270))
+
+
 #Rafraîchissement de l'écran
+
+
 pygame.display.flip()
 
 
@@ -44,10 +53,14 @@ while continuer:
             
         fenetre.blit(fond, (0,0))	
         fenetre.blit(perso, position_perso)
+        fenetre.blit(monnaie, (300,270))
         #Rafraichissement
         pygame.display.flip()
             
             
-        
+#COMPTEUR
+#def compteur():
+    #if perso
+
 
 pygame.quit()
