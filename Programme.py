@@ -29,8 +29,8 @@ NOTICE =  pygame.transform.scale(NOTICE_1, (700,300))
 
 #variables couleurs
 WHITE = (255, 255, 255)
-color_light = (170,170,170)
-color_dark = (100,100,100)
+color_light = (130,170,210)
+color_dark = (100,125,190)
 
 smallfont = pygame.font.SysFont('arial',35) #police et taille de texte 
 text = smallfont.render('?' , True , WHITE) # point d'interrogation
