@@ -22,7 +22,18 @@ PERSONNAGE = pygame.image.load(os.path.join("image","perso.png"))
 PERSO = pygame.transform.scale(PERSONNAGE, (PERSO_WIDHT, PERSO_HEIGHT))    #redimensionnage du perso
 #si rotation voulue utilier pygame.transform.rotate()
 
+notice=pygame.image.load("image/regles.png").convert()#importation de l'image notice
+
+
+
+
+#variables couleurs
 WHITE = (255, 255, 255)
+color_light = (170,170,170)
+color_dark = (100,100,100)
+
+smallfont = pygame.font.SysFont('arial',35) #police et taille de texte 
+text = smallfont.render('?' , True , WHITE) # point d'interrogation
 
 FPS = 60 #pour pouvoir definir nombre de fois que la boucle tourne par seconde
 
@@ -36,27 +47,48 @@ def perso_mouvement(keys_pressed,perso):
     if keys_pressed[pygame.K_DOWN] and perso.y + DIST < HEIGHT - PERSO_HEIGHT:   #si flèche bas pressée et ne sort pas du cadre
         perso.y += DIST    #perso se déplace vers le bas
 
-def draw_window(perso):
-    FENETRE.blit(FOND, (0,0)) #affichage du fond
-    FENETRE.blit(PERSO, (perso.x, perso.y))   #affichage du perso a un endroit preci sur fenetre
-    pygame.display.update()   # rafraichissement de la page
+
+
+    
+    
 
 def main():
     perso = pygame.Rect(100, 300, PERSO_WIDHT, PERSO_HEIGHT) #coordonnées du perso avec la fonction rect
-
     clock = pygame.time.Clock()
     run = True
+    aide= False
     while run:
-        for event in pygame.event.get():
+        FENETRE.blit(FOND, (0,0)) #affichage du fond
+        if aide:
+            FENETRE.blit(notice,(50,0))
+        for event in pygame.event.get(): #pour les actions effectués dans la fenetre pygame
             if event.type == pygame.QUIT:    #si croix rouge
                 run = False    # alors run = 0 donc sort de la boucle while
+                
+            if event.type == pygame.MOUSEBUTTONDOWN: #si on appuie sur la souris
+                if WIDHT-30 <= mouse[0] <= WIDHT-30+40 and HEIGHT-690 <= mouse[1] <= HEIGHT-690+40: #position de la souris sur l'ecran
+                    if aide== False:#si l'aide n'est pas ouverte
+                        aide=True #ouvre l'aide
+                    else:
+                        aide=False#n'ouvre pas l'aide ou la ferme
+                
+        mouse = pygame.mouse.get_pos() #coordonnées de la souris
+        if WIDHT-30 <= mouse[0] <= WIDHT-30+40 and HEIGHT-690 <= mouse[1] <= HEIGHT-690+40:
+            pygame.draw.rect(FOND,color_light,[WIDHT-30,HEIGHT-690,40,40]) #crée un rectangle gris clair si on passe la souris dessus
+          
+        else:
+            pygame.draw.rect(FOND,color_dark,[WIDHT-30,HEIGHT-690,40,40]) #crée un rectangle gris foncé si la souris n'est pas dessus
+        FENETRE.blit(text , (WIDHT-30,HEIGHT-690))
 
         keys_pressed = pygame.key.get_pressed()  #définition variable quand une key est appuyée
 
         perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
+        FENETRE.blit(PERSO, (perso.x, perso.y))   #affichage du perso a un endroit preci sur fenetre
 
-        draw_window(perso) #appel fonction qui projette du blanc + perso
-
+        
+        
+        pygame.display.update()   # rafraichissement de la page
+        
     pygame.quit()   #fermeture propre de la fenêtre
 
 
