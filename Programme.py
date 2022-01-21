@@ -58,38 +58,50 @@ def main():
     run = True
     aide= False
     while run:
-        FENETRE.blit(FOND, (0,0)) #affichage du fond
-        if aide:
-            FENETRE.blit(NOTICE,(50,0))
-        for event in pygame.event.get(): #pour les actions effectués dans la fenetre pygame
-            if event.type == pygame.QUIT:    #si croix rouge
-                run = False    # alors run = 0 donc sort de la boucle while
+        
+            FENETRE.blit(FOND, (0,0)) #affichage du fond
+            
+            for event in pygame.event.get(): #pour les actions effectués dans la fenetre pygame
+                if event.type == pygame.QUIT:    #si croix rouge
+                    run = False    # alors run = 0 donc sort de la boucle while
+                    
+                if event.type == pygame.MOUSEBUTTONDOWN: #si on appuie sur la souris
+                    if WIDHT-30 <= mouse[0] <= WIDHT-30+40 and HEIGHT-690 <= mouse[1] <= HEIGHT-690+40: #position de la souris sur l'ecran
+                        if aide== False:#si l'aide n'est pas ouverte
+                            aide=True #ouvre l'aide
+                        else:
+                            aide=False#n'ouvre pas l'aide ou la ferme
                 
-            if event.type == pygame.MOUSEBUTTONDOWN: #si on appuie sur la souris
-                if WIDHT-30 <= mouse[0] <= WIDHT-30+40 and HEIGHT-690 <= mouse[1] <= HEIGHT-690+40: #position de la souris sur l'ecran
-                    if aide== False:#si l'aide n'est pas ouverte
-                        aide=True #ouvre l'aide
-                    else:
-                        aide=False#n'ouvre pas l'aide ou la ferme
+            mouse = pygame.mouse.get_pos() #coordonnées de la souris
+            if WIDHT-30 <= mouse[0] <= WIDHT-30+40 and HEIGHT-690 <= mouse[1] <= HEIGHT-690+40:
+                pygame.draw.rect(FOND,color_light,[WIDHT-40,HEIGHT-690,40,40]) #crée un rectangle gris clair si on passe la souris dessus
+                FENETRE.blit(text , (WIDHT-30,HEIGHT-690))
+
+            else:
+                pygame.draw.rect(FOND,color_dark,[WIDHT-40,HEIGHT-690,40,40]) #crée un rectangle gris foncé si la souris n'est pas dessus
+                FENETRE.blit(text , (WIDHT-30,HEIGHT-690))
+
+            
+            if aide:
+                FENETRE.blit(NOTICE,(50,0))
                 
-        mouse = pygame.mouse.get_pos() #coordonnées de la souris
-        if WIDHT-30 <= mouse[0] <= WIDHT-30+40 and HEIGHT-690 <= mouse[1] <= HEIGHT-690+40:
-            pygame.draw.rect(FOND,color_light,[WIDHT-30,HEIGHT-690,40,40]) #crée un rectangle gris clair si on passe la souris dessus
-          
-        else:
-            pygame.draw.rect(FOND,color_dark,[WIDHT-30,HEIGHT-690,40,40]) #crée un rectangle gris foncé si la souris n'est pas dessus
-        FENETRE.blit(text , (WIDHT-30,HEIGHT-690))
-
-        keys_pressed = pygame.key.get_pressed()  #définition variable quand une key est appuyée
-
-        perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
-        FENETRE.blit(PERSO, (perso.x, perso.y))   #affichage du perso a un endroit preci sur fenetre
+                
+            else :
+                
+                keys_pressed = pygame.key.get_pressed()  #définition variable quand une key est appuyée
+    
+                perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
+                FENETRE.blit(PERSO, (perso.x, perso.y))   #affichage du perso a un endroit preci sur fenetre
 
         
         
-        pygame.display.update()   # rafraichissement de la page
+            pygame.display.update()   # rafraichissement de la page
+        
+        
+            
         
     pygame.quit()   #fermeture propre de la fenêtre
+
 
 
 if __name__ == "__main__":
