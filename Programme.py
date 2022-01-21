@@ -22,8 +22,8 @@ PERSONNAGE = pygame.image.load(os.path.join("image","perso.png"))
 PERSO = pygame.transform.scale(PERSONNAGE, (PERSO_WIDHT, PERSO_HEIGHT))    #redimensionnage du perso
 #si rotation voulue utilier pygame.transform.rotate()
 
-notice=pygame.image.load("image/regles.png").convert()#importation de l'image notice
-
+NOTICE_1 = pygame.image.load("image/regles.png").convert() #importation de l'image NOTICE
+NOTICE =  pygame.transform.scale(NOTICE_1, (700,300))
 
 
 
@@ -60,7 +60,7 @@ def main():
     while run:
         FENETRE.blit(FOND, (0,0)) #affichage du fond
         if aide:
-            FENETRE.blit(notice,(50,0))
+            FENETRE.blit(NOTICE,(50,0))
         for event in pygame.event.get(): #pour les actions effectués dans la fenetre pygame
             if event.type == pygame.QUIT:    #si croix rouge
                 run = False    # alors run = 0 donc sort de la boucle while
