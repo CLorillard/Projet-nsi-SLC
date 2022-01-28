@@ -31,6 +31,7 @@ Idée mini-jeux:
   - se joue avec les trois flèches du clavier ( en haut, à droite, à  gauche ) 
   - vu de dos 
   - jeu en pixel
+  - 
   - en 2D
  
 Exemples programmations : 
@@ -56,3 +57,24 @@ https://pub.phyks.me/sdz/sdz/interface-graphique-pygame-pour-python.html
 [planning](https://github.com/CLorillard/Projet-nsi-SLC/blob/main/Planning)
 
 Fait le Vendredi 7/01: Déplacement personnage sur map et tentative de bouton pour afficher les règles du jeu.
+import pygame
+import os
+from pygame.locals import *
+
+pygame.init()
+WIDHT, HEIGHT = 1000, 700
+FENETRE = pygame.display.set_mode((WIDHT, HEIGHT))
+run = True
+images=[]
+images.append(pygame.image.load("image/cusdesac.jpg").convert())
+images.append(pygame.image.load("image/toutdroit.jpg").convert())
+images.append(pygame.image.load("image/deuxchemin.jpg").convert())
+images.append(pygame.image.load("image/arrivee.jpg").convert())
+while run:
+    for event in pygame.event.get(): #pour les actions effectués dans la fenetre pygame
+        if event.type == pygame.QUIT:    #si croix rouge
+            run = False
+    FENETRE.blit(images[0],(0,0))
+    
+    pygame.display.update()
+pygame.quit()   #fermeture propre de la fenêtre
