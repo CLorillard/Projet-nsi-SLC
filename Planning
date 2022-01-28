@@ -31,6 +31,7 @@ Nous avons écrits les règles et reussi a les afficher et revenir sur la fenetr
 script de debloquage des niveaux.
 Semaine 6 : sur map principale : mettre la fiche aide avec la redirection  + affichage compteur 
 + icône des jeux avec quand on clique option de déblocage niveau (si acheter rediriger vers une autre fenêtre qui sera plus tard le labirynthe correspondant.)
+ON a fait la fiche d'aideet on l'a assemblée avec le personage qui se deplace avec la souris, maintien appuyé.
 Semaine 7 : script enchaînement des maps
 Semaine 8 : script enchaînement des maps 
 Semaine 9 : positionnement monnaie sur les maps
