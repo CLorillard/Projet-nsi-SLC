@@ -106,3 +106,22 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+    
+'''pygame.init()
+WIDHT, HEIGHT = 1000, 700
+FENETRE = pygame.display.set_mode((WIDHT, HEIGHT))
+run = True
+images=[]
+images.append(pygame.image.load("image/cusdesac.jpg").convert())
+images.append(pygame.image.load("image/toutdroit.jpg").convert())
+images.append(pygame.image.load("image/deuxchemin.jpg").convert())
+images.append(pygame.image.load("image/arrivee.jpg").convert())
+while run:
+    for event in pygame.event.get(): #pour les actions effectués dans la fenetre pygame
+        if event.type == pygame.QUIT:    #si croix rouge
+            run = False
+    FENETRE.blit(images[0],(0,0))
+    
+    pygame.display.update()
+pygame.quit()   #fermeture propre de la fenêtre'''
