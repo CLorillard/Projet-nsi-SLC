@@ -3,15 +3,6 @@ DEPOT
 
 Charlotte LORILLARD, Luna TORRES NAVARRO, Stella CARIDI
 
-
-Sujet 1: création d'un ou plusieurs mini-jeux dans un petit monde en 2D tout rose avec des sucreries où on se ballade et on peut accéder aux jeux en  rentrant dans une maison. 
-
-Idée mini-jeux:
-  - on rentrerait dans une maison en pain d'épice. Il y aurait un chariot en bonbons qui nous entraine sur des rails cassés (sauter pour survivre) avec des sucres d'orges qui seraient la monnaie du jeu. en 2D vu de face
-  - une maison où on achète des objets de personnalisations de l'avatar avec nos sucres d'orges ( monnaie du jeu ).en 2D vu de face
-  - un objet dans un verre retourné, trois verres dont deux vides, ils tournent et il faut retrouver le bonbon qui sera sous un le bon verre. en 2D vu de face
-
-
 **_SUJET 2_** : 
    Un jeux style temple run en 2D mais on serait dans un labyrinthe donc le joueur devrait retenir l'ordre de virages pour sortir. Game over lorsque l'on est dans un cul de sac.  
   
@@ -30,8 +21,7 @@ Idée mini-jeux:
   - monnaie récoltée dans le jeu permet de débloquer le niveau supérieur
   - se joue avec les trois flèches du clavier ( en haut, à droite, à  gauche ) 
   - vu de dos 
-  - jeu en pixel
-  - 
+  - jeu en pixel 
   - en 2D
  
 Exemples programmations : 
@@ -60,21 +50,3 @@ Fait le Vendredi 7/01: Déplacement personnage sur map et tentative de bouton po
 import pygame
 import os
 from pygame.locals import *
-
-pygame.init()
-WIDHT, HEIGHT = 1000, 700
-FENETRE = pygame.display.set_mode((WIDHT, HEIGHT))
-run = True
-images=[]
-images.append(pygame.image.load("image/cusdesac.jpg").convert())
-images.append(pygame.image.load("image/toutdroit.jpg").convert())
-images.append(pygame.image.load("image/deuxchemin.jpg").convert())
-images.append(pygame.image.load("image/arrivee.jpg").convert())
-while run:
-    for event in pygame.event.get(): #pour les actions effectués dans la fenetre pygame
-        if event.type == pygame.QUIT:    #si croix rouge
-            run = False
-    FENETRE.blit(images[0],(0,0))
-    
-    pygame.display.update()
-pygame.quit()   #fermeture propre de la fenêtre
