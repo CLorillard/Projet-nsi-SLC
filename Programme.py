@@ -66,7 +66,7 @@ def perso_mouvement(keys_pressed,perso):
     
 
 def main():
-    perso = pygame.Rect(100, 300, PERSO_WIDTH, PERSO_HEIGHT) #coordonnées du perso avec la fonction rect
+    perso = pygame.Rect(450, 600, PERSO_WIDTH, PERSO_HEIGHT) #coordonnées du perso avec la fonction rect
     clock = pygame.time.Clock()
     pygame.mixer.music.play(-1,0.0)
     run = True
