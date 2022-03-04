@@ -1,9 +1,11 @@
 import pygame
 import os
+import time
 from pygame.locals import *
 
 pygame.init()
 pygame.mixer.init()
+
 
 #ouverture de la fenetre pygame
 WIDTH, HEIGHT = 1000, 700
@@ -17,15 +19,21 @@ FOND = pygame.transform.scale(FOND_1, (WIDTH, HEIGHT))
 FOND2_1=pygame.image.load("image/FOND2.jpg").convert()
 FOND2 = pygame.transform.scale(FOND2_1, (WIDTH, HEIGHT))
 
+che2_1=pygame.image.load("image/deuxchemin.jpg").convert()
+che2 = pygame.transform.scale(che2_1, (WIDTH, HEIGHT))
+
+toutdroit_1=pygame.image.load("image/toutdroit.jpg").convert()
+toutdroit = pygame.transform.scale(toutdroit_1, (WIDTH, HEIGHT))
+
 PERSO_WIDTH, PERSO_HEIGHT = (100, 140) #dimension perso
 
 DIST = 1  #variable pour ajout lors déplacement personnage
 
 #chargement de la musique
-MUSIQUE = pygame.mixer.music.load("Musique/musique.wav")
+MUSIQUE = pygame.mixer.music.load("musique.wav")
 
 #Chargement du personnage
-PERSONNAGE = pygame.image.load(os.path.join("image","perso.png"))
+PERSONNAGE = pygame.image.load(os.path.join("image", "perso.png"))
 PERSO = pygame.transform.scale(PERSONNAGE, (PERSO_WIDTH, PERSO_HEIGHT))    #redimensionnage du perso
 #si rotation voulue utilier pygame.transform.rotate()
 
@@ -62,7 +70,7 @@ def perso_mouvement(keys_pressed,perso):
         perso.y += DIST    #perso se déplace vers le bas
 
 
-    
+
     
 
 def main():
@@ -72,6 +80,11 @@ def main():
     run = True
     aide= False
     jouer=False
+    map_gauche = 0
+    map_droite = 0
+    map_haut = 0
+    map_bas = 0
+
     while run:
         
         FENETRE.blit(FOND, (0,0)) #affichage du fond
@@ -80,15 +93,20 @@ def main():
                 run = False    # alors run = 0 donc sort de la boucle while
                 
             if event.type == pygame.MOUSEBUTTONDOWN: #si on appuie sur la souris
+                print(mouse[0], mouse[1])
                 if WIDTH-30 <= mouse[0] <= WIDTH-30+40 and HEIGHT-690 <= mouse[1] <= HEIGHT-690+40: #position de la souris sur l'ecran
                     if aide== False:#si l'aide n'est pas ouverte
                         aide=True #ouvre l'aide
                     else:
                         aide=False#n'ouvre pas l'aide ou la ferme
+
+
+
                 if WIDTH-750 <= mouse[0] <= WIDTH-750+500 and HEIGHT-400 <= mouse[1] <= HEIGHT-400+200:
                     if jouer==False:
                         jouer=True
-                    
+
+
             
         mouse = pygame.mouse.get_pos() #coordonnées de la souris
         if WIDTH-30 <= mouse[0] <= WIDTH-30+40 and HEIGHT-690 <= mouse[1] <= HEIGHT-690+40:
@@ -102,9 +120,34 @@ def main():
         
         if aide:
             FENETRE.blit(NOTICE,(50,0))
-            
+
         if jouer:
-            FENETRE.blit(FOND2, (0,0))    
+
+            if perso.x - DIST <= 0 :
+                map_gauche += 1
+                perso.x = perso.x + 900
+            elif perso.x + DIST < WIDTH - PERSO_WIDTH:
+                map_droite+=1
+            elif perso.y - DIST > 0:
+                map_haut+=1
+            elif perso.y + DIST < HEIGHT - PERSO_HEIGHT:
+                map_bas+=1
+            print(map_gauche)
+
+
+
+
+            if map_gauche ==1:
+                FENETRE.blit(che2, (0, 0))
+            elif map_gauche ==2:
+                FENETRE.blit(toutdroit, (0, 0))
+
+
+
+            else:
+
+
+                FENETRE.blit(FOND2, (0, 0))
             keys_pressed = pygame.key.get_pressed()  #définition variable quand une key est appuyée
 
             perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
