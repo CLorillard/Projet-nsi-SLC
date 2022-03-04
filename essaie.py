@@ -182,9 +182,11 @@ def main():
             FENETRE.blit(NIVEAU1, (200,230))
             FENETRE.blit(NIVEAU2, (400,250))
             FENETRE.blit(NIVEAU3, (600,260))
+        if event.type == pygame.MOUSEBUTTONDOWN: #si on appuie sur la souris
+            if WIDTH-800 <= mouse[0] <= WIDTH-800+100 and HEIGHT-400 <= mouse[1] <= HEIGHT-400+300:
+                niveau1()
 
-        if   500 >= perso.x <= 700 and 300 >= perso.y <= 550:
-            niveau1()
+
                 
                 
         
