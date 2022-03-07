@@ -46,7 +46,7 @@ NOTICE =  pygame.transform.scale(NOTICE_1, (700,300))
 NIVEAU_1 = pygame.image.load("image/niveau1.png").convert_alpha() #importation de l'image niveau1
 NIVEAU1 =  pygame.transform.scale(NIVEAU_1, (200,350))
 
-NIVEAU_2 = pygame.image.load("image/niveau2.jpg").convert_alpha() #importation de l'image niveau2
+NIVEAU_2 = pygame.image.load("image/niveau2.png").convert_alpha() #importation de l'image niveau2
 NIVEAU2 =  pygame.transform.scale(NIVEAU_2, (200,350))
 
 NIVEAU_3 = pygame.image.load("image/niveau3.png").convert_alpha() #importation de l'image niveau3
@@ -126,23 +126,23 @@ def main():
 
         if jouer:
 
-            if perso.x - DIST <= 0 :
+            """if perso.x - DIST <= 0 :
                 map_gauche += 1
                 perso.x = perso.x + 900
             elif perso.x + DIST < WIDTH - PERSO_WIDTH:
-                map_droite+=1
-            elif perso.y - DIST > 0:
+                map_droite+=1"""
+            if perso.y - DIST > 0:
                 map_haut+=1
-            elif perso.y + DIST < HEIGHT - PERSO_HEIGHT:
+           """elif perso.y + DIST < HEIGHT - PERSO_HEIGHT:
                 map_bas+=1
-            print(map_gauche)
+            print(map_gauche)"""
 
 
 
 
-            if map_gauche ==1:
+            if map_haut ==1:
                 FENETRE.blit(che2, (0, 0))
-            elif map_gauche ==2:
+            elif map_haut ==2:
                 FENETRE.blit(toutdroit, (0, 0))
 
 
@@ -173,20 +173,3 @@ def main():
 if __name__ == "__main__":
     main()
     
-'''pygame.init()
-WIDHT, HEIGHT = 1000, 700
-FENETRE = pygame.display.set_mode((WIDHT, HEIGHT))
-run = True
-images=[]
-images.append(pygame.image.load("image/cusdesac.jpg").convert())
-images.append(pygame.image.load("image/toutdroit.jpg").convert())
-images.append(pygame.image.load("image/deuxchemin.jpg").convert())
-images.append(pygame.image.load("image/arrivee.jpg").convert())
-while run:
-    for event in pygame.event.get(): #pour les actions effectués dans la fenetre pygame
-        if event.type == pygame.QUIT:    #si croix rouge
-            run = False
-    FENETRE.blit(images[0],(0,0))
-    
-    pygame.display.update()
-pygame.quit()   #fermeture propre de la fenêtre'''
