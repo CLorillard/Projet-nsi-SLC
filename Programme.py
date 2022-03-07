@@ -133,6 +133,7 @@ def main():
                 map_droite+=1"""
             if perso.y - DIST > 0:
                 map_haut+=1
+                perso.y = perso.y + 600
            """elif perso.y + DIST < HEIGHT - PERSO_HEIGHT:
                 map_bas+=1
             print(map_gauche)"""
