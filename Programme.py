@@ -19,11 +19,14 @@ FOND = pygame.transform.scale(FOND_1, (WIDTH, HEIGHT))
 FOND2_1=pygame.image.load("image/FOND2.jpg").convert()
 FOND2 = pygame.transform.scale(FOND2_1, (WIDTH, HEIGHT))
 
+
 che2_1=pygame.image.load("image/deuxchemin.jpg").convert()
-che2 = pygame.transform.scale(che2_1, (WIDTH, HEIGHT))
+che2_2= pygame.transform.rotate(che2_1,90)
+che2 = pygame.transform.scale(che2_2, (WIDTH, HEIGHT))
 
 toutdroit_1=pygame.image.load("image/toutdroit.jpg").convert()
-toutdroit = pygame.transform.scale(toutdroit_1, (WIDTH, HEIGHT))
+toutdroit_2=pygame.transform.rotate(toutdroit_1,-90)
+toutdroit = pygame.transform.scale(toutdroit_2, (WIDTH, HEIGHT))
 
 PERSO_WIDTH, PERSO_HEIGHT = (100, 140) #dimension perso
 
