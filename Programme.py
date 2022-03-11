@@ -19,7 +19,6 @@ FOND = pygame.transform.scale(FOND_1, (WIDTH, HEIGHT))
 FOND2_1=pygame.image.load("image/FOND2.jpg").convert()
 FOND2 = pygame.transform.scale(FOND2_1, (WIDTH, HEIGHT))
 
-
 che2_1=pygame.image.load("image/deuxchemin.jpg").convert()
 che2_2= pygame.transform.rotate(che2_1,90)
 che2 = pygame.transform.scale(che2_2, (WIDTH, HEIGHT))
@@ -33,7 +32,7 @@ PERSO_WIDTH, PERSO_HEIGHT = (100, 140) #dimension perso
 DIST = 1  #variable pour ajout lors déplacement personnage
 
 #chargement de la musique
-MUSIQUE = pygame.mixer.music.load("musique.wav")
+MUSIQUE = pygame.mixer.music.load("Musique/musique.wav")
 
 #Chargement du personnage
 PERSONNAGE = pygame.image.load(os.path.join("image", "perso.png"))
@@ -125,18 +124,14 @@ def main():
             FENETRE.blit(NOTICE,(50,0))
 
         if jouer:
-
-            """if perso.x - DIST <= 0 :
-                map_gauche += 1
-                perso.x = perso.x + 900
-            elif perso.x + DIST < WIDTH - PERSO_WIDTH:
-                map_droite+=1"""
-            if perso.y - DIST > 0:
+            
+            if perso.y - DIST <= 0: 
                 map_haut+=1
-                perso.y = perso.y + 600
-           """elif perso.y + DIST < HEIGHT - PERSO_HEIGHT:
-                map_bas+=1
-            print(map_gauche)"""
+                perso.y = perso.y + 700
+            
+           
+            
+            print(map_haut)
 
 
 
@@ -173,4 +168,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
     
