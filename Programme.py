@@ -45,7 +45,7 @@ NOTICE =  pygame.transform.scale(NOTICE_1, (700,300))
 NIVEAU_1 = pygame.image.load("image/niveau1.png").convert_alpha() #importation de l'image niveau1
 NIVEAU1 =  pygame.transform.scale(NIVEAU_1, (200,350))
 
-NIVEAU_2 = pygame.image.load("image/niveau2.png").convert_alpha() #importation de l'image niveau2
+NIVEAU_2 = pygame.image.load("image/niveau2.jpg").convert_alpha() #importation de l'image niveau2
 NIVEAU2 =  pygame.transform.scale(NIVEAU_2, (200,350))
 
 NIVEAU_3 = pygame.image.load("image/niveau3.png").convert_alpha() #importation de l'image niveau3
@@ -82,6 +82,7 @@ def main():
     run = True
     aide= False
     jouer=False
+    niveau1=False
     map_gauche = 0
     map_droite = 0
     map_haut = 0
@@ -95,7 +96,7 @@ def main():
                 run = False    # alors run = 0 donc sort de la boucle while
                 
             if event.type == pygame.MOUSEBUTTONDOWN: #si on appuie sur la souris
-                print(mouse[0], mouse[1])
+                (mouse[0], mouse[1])
                 if WIDTH-30 <= mouse[0] <= WIDTH-30+40 and HEIGHT-690 <= mouse[1] <= HEIGHT-690+40: #position de la souris sur l'ecran
                     if aide== False:#si l'aide n'est pas ouverte
                         aide=True #ouvre l'aide
@@ -108,6 +109,11 @@ def main():
                     if jouer==False:
                         jouer=True
 
+                
+                if WIDTH-900 <= mouse[0] <= WIDTH-900+250 and HEIGHT-400 <= mouse[1] <= HEIGHT-400+200:
+                    print("love")
+                    if niveau1==False:
+                        niveau1=True
 
             
         mouse = pygame.mouse.get_pos() #coordonnées de la souris
@@ -124,36 +130,39 @@ def main():
             FENETRE.blit(NOTICE,(50,0))
 
         if jouer:
-            
-            if perso.y - DIST <= 0: 
-                map_haut+=1
-                perso.y = perso.y + 700
+            if niveau1:
+                FENETRE.blit(toutdroit, (0, 0))
+                keys_pressed = pygame.key.get_pressed() 
+                perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
+                FENETRE.blit(PERSO, (perso.x, perso.y))
+                if perso.y - DIST <= 0:
+                    map_haut+=1
+                    perso.y = perso.y + 700
             
            
             
-            print(map_haut)
+            
 
 
 
 
-            if map_haut ==1:
-                FENETRE.blit(che2, (0, 0))
-            elif map_haut ==2:
-                FENETRE.blit(toutdroit, (0, 0))
+                if map_haut ==1:
+                    FENETRE.blit(che2, (0, 0))
+                elif map_haut ==2:
+                    FENETRE.blit(toutdroit, (0, 0))
+                keys_pressed = pygame.key.get_pressed() 
+                perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
+                FENETRE.blit(PERSO, (perso.x, perso.y))
 
 
 
             else:
-
-
+        
+        
                 FENETRE.blit(FOND2, (0, 0))
-            keys_pressed = pygame.key.get_pressed()  #définition variable quand une key est appuyée
-
-            perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
-            FENETRE.blit(PERSO, (perso.x, perso.y))   #affichage du perso a un endroit preci sur fenetre
-            FENETRE.blit(NIVEAU1, (200,230))
-            FENETRE.blit(NIVEAU2, (400,250))
-            FENETRE.blit(NIVEAU3, (600,260))
+                FENETRE.blit(NIVEAU1, (200,230))
+                FENETRE.blit(NIVEAU2, (400,250))
+                FENETRE.blit(NIVEAU3, (600,260))
 
     
     
@@ -168,5 +177,5 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
+#luna la best
     
