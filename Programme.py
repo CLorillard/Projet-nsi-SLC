@@ -45,7 +45,7 @@ NOTICE =  pygame.transform.scale(NOTICE_1, (700,300))
 NIVEAU_1 = pygame.image.load("image/niveau1.png").convert_alpha() #importation de l'image niveau1
 NIVEAU1 =  pygame.transform.scale(NIVEAU_1, (200,350))
 
-NIVEAU_2 = pygame.image.load("image/niveau2.jpg").convert_alpha() #importation de l'image niveau2
+NIVEAU_2 = pygame.image.load("image/niveau2.png").convert_alpha() #importation de l'image niveau2
 NIVEAU2 =  pygame.transform.scale(NIVEAU_2, (200,350))
 
 NIVEAU_3 = pygame.image.load("image/niveau3.png").convert_alpha() #importation de l'image niveau3
