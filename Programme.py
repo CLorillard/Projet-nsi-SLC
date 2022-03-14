@@ -2,10 +2,9 @@ import pygame
 import os
 import time
 from pygame.locals import *
-
+import random
 pygame.init()
 pygame.mixer.init()
-
 
 #ouverture de la fenetre pygame
 WIDTH, HEIGHT = 1000, 700
@@ -71,6 +70,12 @@ def perso_mouvement(keys_pressed,perso):
     if keys_pressed[pygame.K_DOWN] and perso.y + DIST < HEIGHT - PERSO_HEIGHT:   #si flèche bas pressée et ne sort pas du cadre
         perso.y += DIST    #perso se déplace vers le bas
 
+def generation_map(longueur):
+    map=[]
+
+    for i in range (longueur):
+        map.append(random.choice([1,2]))
+        return map
 
 
     
@@ -83,6 +88,8 @@ def main():
     aide= False
     jouer=False
     niveau1=False
+    niveau2=False
+    niveau3=False
     map_gauche = 0
     map_droite = 0
     map_haut = 0
@@ -105,17 +112,29 @@ def main():
 
 
 
-                if WIDTH-750 <= mouse[0] <= WIDTH-750+500 and HEIGHT-400 <= mouse[1] <= HEIGHT-400+200:
-                    if jouer==False:
-                        jouer=True
+
 
                 
-                if WIDTH-900 <= mouse[0] <= WIDTH-900+250 and HEIGHT-400 <= mouse[1] <= HEIGHT-400+200:
+                if WIDTH-825 <= mouse[0] <= WIDTH-825+175 and HEIGHT-450 <= mouse[1] <= HEIGHT-450+300 and jouer:
                     print("love")
                     if niveau1==False:
                         niveau1=True
 
-            
+                if WIDTH-600 <= mouse[0] <= WIDTH-600+175 and HEIGHT-450 <= mouse[1] <= HEIGHT-450+300 and jouer:
+                    print("aime")
+                    if niveau2==False:
+                        niveau2=True
+
+
+                if WIDTH-375 <= mouse[0] <= WIDTH-425+175 and HEIGHT-450 <= mouse[1] <= HEIGHT-450+300 and jouer:
+                    print("coeur")
+                    if niveau3==False:
+                        niveau3=True
+
+                if WIDTH-750 <= mouse[0] <= WIDTH-750+500 and HEIGHT-400 <= mouse[1] <= HEIGHT-400+200:
+                    if jouer==False:
+                        jouer=True
+
         mouse = pygame.mouse.get_pos() #coordonnées de la souris
         if WIDTH-30 <= mouse[0] <= WIDTH-30+40 and HEIGHT-690 <= mouse[1] <= HEIGHT-690+40:
             pygame.draw.rect(FOND,color_light,[WIDTH-40,HEIGHT-690,40,40]) #crée un rectangle gris clair si on passe la souris dessus
@@ -138,13 +157,6 @@ def main():
                 if perso.y - DIST <= 0:
                     map_haut+=1
                     perso.y = perso.y + 700
-            
-           
-            
-            
-
-
-
 
                 if map_haut ==1:
                     FENETRE.blit(che2, (0, 0))
@@ -153,8 +165,16 @@ def main():
                 keys_pressed = pygame.key.get_pressed() 
                 perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
                 FENETRE.blit(PERSO, (perso.x, perso.y))
-
-
+            elif niveau2:
+                generation_map(3)
+                FENETRE.blit(toutdroit, (0, 0))
+                keys_pressed = pygame.key.get_pressed()
+                perso_mouvement(keys_pressed, perso)  # appel fonction mouvement perso
+                FENETRE.blit(PERSO, (perso.x, perso.y))
+                pass
+            elif niveau3:
+                #print('niv3')
+                pass
 
             else:
         
@@ -164,18 +184,11 @@ def main():
                 FENETRE.blit(NIVEAU2, (400,250))
                 FENETRE.blit(NIVEAU3, (600,260))
 
-    
-    
-        pygame.display.update()   # rafraichissement de la page
-        
-        
-            
-        
-    pygame.quit()   #fermeture propre de la fenêtre
+        pygame.display.update()  # rafraichissement de la page
 
+    pygame.quit()  # fermeture propre de la fenêtre
 
 
 if __name__ == "__main__":
     main()
-#luna la best
-    
+# luna la best
