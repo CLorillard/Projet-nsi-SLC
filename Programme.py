@@ -111,7 +111,7 @@ def main():
     map_gauche = 0
     map_droite = 0
     map_haut = 0
-    map_bas = 0
+    
 
     while run:
         
@@ -127,6 +127,9 @@ def main():
                         aide=True #ouvre l'aide
                     else:
                         aide=False#n'ouvre pas l'aide ou la ferme
+
+
+
 
 
                 
@@ -186,10 +189,34 @@ def main():
                 keys_pressed = pygame.key.get_pressed()
                 perso_mouvement(keys_pressed, perso)  # appel fonction mouvement perso
                 FENETRE.blit(PERSO, (perso.x, perso.y))
-                pass
+                if perso.y - DIST <= 0:
+                    map_haut+=1
+                    perso.y = perso.y + 700
+
+                if map_haut ==1:
+                    FENETRE.blit(che2, (0, 0))
+                elif map_haut ==2:
+                    FENETRE.blit(toutdroit, (0, 0))
+                keys_pressed = pygame.key.get_pressed() 
+                perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
+                FENETRE.blit(PERSO, (perso.x, perso.y))
             elif niveau3:
-                #print('niv3')
-                pass
+                generation_map(3)
+                FENETRE.blit(toutdroit, (0, 0))
+                keys_pressed = pygame.key.get_pressed()
+                perso_mouvement(keys_pressed, perso)  # appel fonction mouvement perso
+                FENETRE.blit(PERSO, (perso.x, perso.y))
+                if perso.y - DIST <= 0:
+                    map_haut+=1
+                    perso.y = perso.y + 700
+
+                if map_haut ==1:
+                    FENETRE.blit(che2, (0, 0))
+                elif map_haut ==2:
+                    FENETRE.blit(toutdroit, (0, 0))
+                keys_pressed = pygame.key.get_pressed() 
+                perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
+                FENETRE.blit(PERSO, (perso.x, perso.y))
 
             else:
         
