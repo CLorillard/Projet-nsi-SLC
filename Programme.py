@@ -45,7 +45,7 @@ droit = pygame.transform.scale(droit_1, (WIDTH, HEIGHT))
 
 PERSO_WIDTH, PERSO_HEIGHT = (100, 140) #dimension perso
 
-DIST = 1  #variable pour ajout lors déplacement personnage
+DIST = 2  #variable pour ajout lors déplacement personnage
 
 #chargement de la musique
 MUSIQUE = pygame.mixer.music.load("Musique/musique.wav")
@@ -76,10 +76,14 @@ smallfont = pygame.font.SysFont('arial',35) #police et taille de texte
 text = smallfont.render('?' , True , WHITE) # point d'interrogation
 
 
-map = []
+map_1 = []
 for i in range(3):
-    map.append(random.choice([1, 2]))
-
+    map_1.append(random.choice([1, 2]))
+    
+map_2 = []
+for i in range (7):
+    map_2.append(random.choice([1,2]))
+    
 FPS = 60 #pour pouvoir definir nombre de fois que la boucle tourne par seconde
 
 def perso_mouvement(keys_pressed,perso):
@@ -92,20 +96,16 @@ def perso_mouvement(keys_pressed,perso):
     if keys_pressed[pygame.K_DOWN] and perso.y + DIST < HEIGHT - PERSO_HEIGHT:   #si flèche bas pressée et ne sort pas du cadre
         perso.y += DIST    #perso se déplace vers le bas
 
-def generation_map(longueur):
-    map=[]
 
-    for i in range (longueur):
-        map.append(random.choice([1,2]))
-        return map
+
 
 
     
 
 def main():
     perso = pygame.Rect(450, 600, PERSO_WIDTH, PERSO_HEIGHT) #coordonnées du perso avec la fonction rect
-    clock = pygame.time.Clock()
-    pygame.mixer.music.play(-1,0.0)
+    #clock = pygame.time.Clock()
+    #pygame.mixer.music.play(-1,0.0)
     run = True
     aide= False
     jouer=False
@@ -118,7 +118,8 @@ def main():
     map_bas = 0
     culdesac = 0
     i=0
-
+    game_over_45 = 0
+    
             
     while run:
         
@@ -179,7 +180,7 @@ def main():
 
             if niveau1:
                 
-                print(map)
+                print(map_1)
                 print(map_droite)
                 print(map_gauche)
                 print(i)
@@ -200,34 +201,51 @@ def main():
                 if map_haut ==1:
                     FENETRE.blit(che2, (0, 0))
                 elif map_haut ==2:
-                    if map_gauche == 1 and map[i]==1:
+                    if map_gauche == 1 and map_1[i]==1:
                         #print(map)
                         print("c d s 1")
                         FENETRE.blit(cul_de_sac, (0,0))
                         culdesac = 1
-                    elif map_gauche == 1 and map[i]==2:
+                    elif map_gauche == 1 and map_1[i]==2:
                         FENETRE.blit(toutdroit2, (0, 0))
                         print("t 1")
-                    elif map_droite == 1 and map[i]==1:
+                    elif map_droite == 1 and map_1[i]==1:
                         FENETRE.blit(toutdroit, (0,0))
                         print("t 2")
-                    elif map_droite == 1 and map[i]==2:
+                    elif map_droite == 1 and map_1[i]==2:
                         print("c d s 2")
                         FENETRE.blit(cul_de_sac, (0,0))
                         culdesac = 1
                 elif culdesac == 1:
                     print(map_droite)
                     FENETRE.blit(game_over, (0, 0))
-                    print("blblb")
-                    map_haut = 0
-                    map_droite = 0
-                    map_gauche = 0
+                    game_over_45 = 1
                     i=0
                     print(niveau1)
-                    if event.type == pygame.KEYDOWN:
-                        if event.key == K_RETURN:
-                            niveau1 = False
-                        
+                    for event in pygame.event.get():
+                        if event.type == pygame.MOUSEBUTTONDOWN:
+                            if WIDTH-600 <= mouse[0] <= WIDTH-600+175 and HEIGHT-450 <= mouse[1] <= HEIGHT-450+300 :
+                                game_over_45 = 0
+                                map_gauche = 0
+                                map_droite = 0
+                                map_haut = 0
+                                map_bas = 0
+                                culdesac = 0
+                                i = 0
+                        elif event.type == pygame.KEYDOWN:
+                            if event.key == K_RETURN:
+                                niveau1 = False
+                                game_over_45 = 0
+                                map_gauche = 0
+                                map_droite = 0
+                                map_haut = 0
+                                map_bas = 0
+                                culdesac = 0
+                                i = 0
+                                
+                elif game_over_45 == 1 :
+                    FENETRE.blit(game_over, (0, 0))
+                    
                 else :
                     if map_haut != 0:
                         i += 1
@@ -247,10 +265,10 @@ def main():
                             map_haut = 0
                             map_bas = 0
                             culdesac = 0
-                            map.clear()
-                            print(map)
+                            map_1.clear()
+                            print(map_1)
                             for i in range(3):
-                                map.append(random.choice([1, 2]))
+                                map_1.append(random.choice([1, 2]))
                             i = 0    
                                 
                 elif i > 3 :
@@ -265,31 +283,109 @@ def main():
                             map_haut = 0
                             map_bas = 0
                             culdesac = 0
-                            map.clear()
-                            print(map)
+                            map_1.clear()
+                            print(map_1)
                             for i in range(3):
-                                map.append(random.choice([1, 2]))
+                                map_1.append(random.choice([1, 2]))
                             i = 0
-                                
+                    
+
                     #FENETRE.blit(che2, (0, 0))
 
                 keys_pressed = pygame.key.get_pressed() 
                 perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
                 FENETRE.blit(PERSO, (perso.x, perso.y))
             elif niveau2:
-                generation_map(3)
-                FENETRE.blit(toutdroit, (0, 0))
-                keys_pressed = pygame.key.get_pressed()
-                perso_mouvement(keys_pressed, perso)  # appel fonction mouvement perso
+                
+                
+                print(map_2)
+                FENETRE.blit(droit, (0, 0))
+                keys_pressed = pygame.key.get_pressed() 
+                perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
                 FENETRE.blit(PERSO, (perso.x, perso.y))
-                print(map)
                 if perso.y - DIST <= 0:
                     if WIDTH-950 <= perso.x <= WIDTH-950+275 and map_haut:
                         map_gauche+=1
 
                     elif WIDTH-525 <= perso.x <= WIDTH-525+275 and map_haut:
                         map_droite+=1
-                pass
+                    map_haut+=1
+                    perso.y = perso.y + 700
+
+                if map_haut ==1:
+                    FENETRE.blit(che2, (0, 0))
+                elif map_haut ==2:
+                    if map_gauche == 1 and map_2[i]==1:
+                        #print(map)
+                        print("c d s 1")
+                        FENETRE.blit(cul_de_sac, (0,0))
+                        culdesac = 1
+                    elif map_gauche == 1 and map_2[i]==2:
+                        FENETRE.blit(toutdroit2, (0, 0))
+                        print("t 1")
+                    elif map_droite == 1 and map_2[i]==1:
+                        FENETRE.blit(toutdroit, (0,0))
+                        print("t 2")
+                    elif map_droite == 1 and map_2[i]==2:
+                        print("c d s 2")
+                        FENETRE.blit(cul_de_sac, (0,0))
+                        culdesac = 1
+                elif culdesac == 1:
+                    print(map_droite)
+                    FENETRE.blit(game_over, (0, 0))
+                    print("blblb")
+                    map_haut = 0
+                    map_droite = 0
+                    map_gauche = 0
+                    print(niveau1)
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == K_RETURN:
+                            niveau2 = False
+                            i=0
+                        
+                else :
+                    if map_haut != 0:
+                        i += 1
+                        map_haut = 0
+                        map_droite = 0
+                        map_gauche = 0 
+                            
+                if i == 7 :
+                    FENETRE.blit(FINISH, (0,0))
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == K_RETURN:
+                            niveau2 = False
+                            map_gauche = 0
+                            map_droite = 0
+                            map_haut = 0
+                            map_bas = 0
+                            culdesac = 0
+                            map_2.clear()
+                            print(map_2)
+                            for i in range(7):
+                                map_2.append(random.choice([1, 2]))
+                            i = 0
+                
+                elif i > 7 :
+                    FENETRE.blit(FINISH, (0,0))
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == K_RETURN:
+                            niveau2 = False
+                            map_gauche = 0
+                            map_droite = 0
+                            map_haut = 0
+                            map_bas = 0
+                            culdesac = 0
+                            map_2.clear()
+                            print(map_2)
+                            for i in range(7):
+                                map_2.append(random.choice([1, 2]))
+                            i = 0
+                            
+                keys_pressed = pygame.key.get_pressed() 
+                perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
+                FENETRE.blit(PERSO, (perso.x, perso.y))
+                                
             elif niveau3:
                 #print('niv3')
                 pass
