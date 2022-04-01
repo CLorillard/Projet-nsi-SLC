@@ -77,11 +77,11 @@ text = smallfont.render('?' , True , WHITE) # point d'interrogation
 
 
 map_1 = []
-for i in range(3):
+for i in range(7):
     map_1.append(random.choice([1, 2]))
     
 map_2 = []
-for i in range (7):
+for i in range (13):
     map_2.append(random.choice([1,2]))
     
 FPS = 60 #pour pouvoir definir nombre de fois que la boucle tourne par seconde
@@ -104,8 +104,8 @@ def perso_mouvement(keys_pressed,perso):
 
 def main():
     perso = pygame.Rect(450, 600, PERSO_WIDTH, PERSO_HEIGHT) #coordonnées du perso avec la fonction rect
-    #clock = pygame.time.Clock()
-    #pygame.mixer.music.play(-1,0.0)
+    clock = pygame.time.Clock()
+    pygame.mixer.music.play(-1,0.0)
     run = True
     aide= False
     jouer=False
@@ -253,7 +253,7 @@ def main():
                         map_droite = 0
                         map_gauche = 0 
                             
-                if i == 3 :
+                if i == 7 :
                     FENETRE.blit(FINISH, (0,0))
                     if event.type == pygame.KEYDOWN:
                         if event.key == K_RETURN:
@@ -267,11 +267,11 @@ def main():
                             culdesac = 0
                             map_1.clear()
                             print(map_1)
-                            for i in range(3):
+                            for i in range(7):
                                 map_1.append(random.choice([1, 2]))
                             i = 0    
                                 
-                elif i > 3 :
+                elif i > 7 :
                     FENETRE.blit(FINISH, (0,0))
                     if event.type == pygame.KEYDOWN:
                         if event.key == K_RETURN:
@@ -285,7 +285,7 @@ def main():
                             culdesac = 0
                             map_1.clear()
                             print(map_1)
-                            for i in range(3):
+                            for i in range(7):
                                 map_1.append(random.choice([1, 2]))
                             i = 0
                     
@@ -370,7 +370,7 @@ def main():
                         map_droite = 0
                         map_gauche = 0 
                             
-                if i == 7 :
+                if i == 13 :
                     FENETRE.blit(FINISH, (0,0))
                     if event.type == pygame.KEYDOWN:
                         if event.key == K_RETURN:
@@ -384,11 +384,11 @@ def main():
                             culdesac = 0
                             map_2.clear()
                             print(map_2)
-                            for i in range(7):
+                            for i in range(13):
                                 map_2.append(random.choice([1, 2]))
                             i = 0    
                                 
-                elif i > 7 :
+                elif i > 13 :
                     FENETRE.blit(FINISH, (0,0))
                     if event.type == pygame.KEYDOWN:
                         if event.key == K_RETURN:
@@ -402,7 +402,7 @@ def main():
                             culdesac = 0
                             map_2.clear()
                             print(map_2)
-                            for i in range(7):
+                            for i in range(13):
                                 map_2.append(random.choice([1, 2]))
                             i = 0
                     
