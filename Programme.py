@@ -297,8 +297,11 @@ def main():
                 FENETRE.blit(PERSO, (perso.x, perso.y))
             elif niveau2:
                 
-                
                 print(map_2)
+                print(map_droite)
+                print(map_gauche)
+                print(i)
+                print(niveau2)
                 FENETRE.blit(droit, (0, 0))
                 keys_pressed = pygame.key.get_pressed() 
                 perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
@@ -333,16 +336,33 @@ def main():
                 elif culdesac == 1:
                     print(map_droite)
                     FENETRE.blit(game_over, (0, 0))
-                    print("blblb")
-                    map_haut = 0
-                    map_droite = 0
-                    map_gauche = 0
-                    print(niveau1)
-                    if event.type == pygame.KEYDOWN:
-                        if event.key == K_RETURN:
-                            niveau2 = False
-                            i=0
-                        
+                    game_over_45 = 1
+                    i=0
+                    print(niveau2)
+                    for event in pygame.event.get():
+                        if event.type == pygame.MOUSEBUTTONDOWN:
+                            if WIDTH-600 <= mouse[0] <= WIDTH-600+175 and HEIGHT-450 <= mouse[1] <= HEIGHT-450+300 :
+                                game_over_45 = 0
+                                map_gauche = 0
+                                map_droite = 0
+                                map_haut = 0
+                                map_bas = 0
+                                culdesac = 0
+                                i = 0
+                        elif event.type == pygame.KEYDOWN:
+                            if event.key == K_RETURN:
+                                niveau2 = False
+                                game_over_45 = 0
+                                map_gauche = 0
+                                map_droite = 0
+                                map_haut = 0
+                                map_bas = 0
+                                culdesac = 0
+                                i = 0
+                                
+                elif game_over_45 == 1 :
+                    FENETRE.blit(game_over, (0, 0))
+                    
                 else :
                     if map_haut != 0:
                         i += 1
@@ -355,6 +375,8 @@ def main():
                     if event.type == pygame.KEYDOWN:
                         if event.key == K_RETURN:
                             niveau2 = False
+                            i = 0       
+                            print(i) 
                             map_gauche = 0
                             map_droite = 0
                             map_haut = 0
@@ -364,13 +386,15 @@ def main():
                             print(map_2)
                             for i in range(7):
                                 map_2.append(random.choice([1, 2]))
-                            i = 0
-                
+                            i = 0    
+                                
                 elif i > 7 :
                     FENETRE.blit(FINISH, (0,0))
                     if event.type == pygame.KEYDOWN:
                         if event.key == K_RETURN:
                             niveau2 = False
+                            i = 0       
+                            print(i) 
                             map_gauche = 0
                             map_droite = 0
                             map_haut = 0
@@ -381,7 +405,10 @@ def main():
                             for i in range(7):
                                 map_2.append(random.choice([1, 2]))
                             i = 0
-                            
+                    
+
+                    #FENETRE.blit(che2, (0, 0))
+
                 keys_pressed = pygame.key.get_pressed() 
                 perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
                 FENETRE.blit(PERSO, (perso.x, perso.y))
