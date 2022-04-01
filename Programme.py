@@ -45,7 +45,7 @@ droit = pygame.transform.scale(droit_1, (WIDTH, HEIGHT))
 
 PERSO_WIDTH, PERSO_HEIGHT = (100, 140) #dimension perso
 
-DIST = 2  #variable pour ajout lors déplacement personnage
+DIST = 1  #variable pour ajout lors déplacement personnage
 
 #chargement de la musique
 MUSIQUE = pygame.mixer.music.load("Musique/musique.wav")
@@ -104,8 +104,8 @@ def generation_map(longueur):
 
 def main():
     perso = pygame.Rect(450, 600, PERSO_WIDTH, PERSO_HEIGHT) #coordonnées du perso avec la fonction rect
-    #clock = pygame.time.Clock()
-    #pygame.mixer.music.play(-1,0.0)
+    clock = pygame.time.Clock()
+    pygame.mixer.music.play(-1,0.0)
     run = True
     aide= False
     jouer=False
