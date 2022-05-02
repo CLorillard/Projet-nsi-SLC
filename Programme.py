@@ -49,7 +49,7 @@ droit = pygame.transform.scale(droit_1, (WIDTH, HEIGHT))
 
 PERSO_WIDTH, PERSO_HEIGHT = (100, 140) #dimension perso
 
-DIST = 1.5  #variable pour ajout lors déplacement personnage
+DIST = 2  #variable pour ajout lors déplacement personnage
 
 #chargement de la musique
 MUSIQUE = pygame.mixer.music.load("Musique/musique.wav")
@@ -94,30 +94,17 @@ for i in range(12):
     
 FPS = 60 #pour pouvoir definir nombre de fois que la boucle tourne par seconde
 
-chemin_2 = 0
-
 def perso_mouvement(keys_pressed,perso):
-     
-    if chemin_2 == 1:
-        if keys_pressed[pygame.K_LEFT] and perso.x - DIST > 0:  #si flèche gauche pressée et ne sort pas du cadre
-            perso.x -= DIST  #perso se déplace à gauche
-        if keys_pressed[pygame.K_RIGHT]and perso.x + DIST < WIDTH - PERSO_WIDTH:  #si flèche droite pressée et ne sort pas du cadre
-            perso.x += DIST   #perso se déplace  à droite
-        if keys_pressed[pygame.K_UP] and perso.y - DIST > 0:   #si flèche haut pressée et ne sort pas du cadre
-            perso.y -= DIST    #perso se déplace vers le haut
-        if keys_pressed[pygame.K_DOWN] and perso.y + DIST < HEIGHT - PERSO_HEIGHT:   #si flèche bas pressée et ne sort pas du cadre
-            perso.y += DIST    #perso se déplace vers le bas
-    
-    else :
-        if keys_pressed[pygame.K_LEFT] and perso.x - DIST > 700:  #si flèche gauche pressée et ne sort pas du cadre
-            perso.x -= DIST  #perso se déplace à gauche
-        if keys_pressed[pygame.K_RIGHT]and perso.x + DIST < 300 - PERSO_WIDTH:  #si flèche droite pressée et ne sort pas du cadre
-            perso.x += DIST   #perso se déplace  à droite
-        if keys_pressed[pygame.K_UP] and perso.y - DIST > 0:   #si flèche haut pressée et ne sort pas du cadre
-            perso.y -= DIST    #perso se déplace vers le haut
-        if keys_pressed[pygame.K_DOWN] and perso.y + DIST < HEIGHT - PERSO_HEIGHT:   #si flèche bas pressée et ne sort pas du cadre
-            perso.y += DIST    #perso se déplace vers le bas
-   
+    if keys_pressed[pygame.K_LEFT] and perso.x - DIST > 0:  #si flèche gauche pressée et ne sort pas du cadre
+        perso.x -= DIST  #perso se déplace à gauche
+    if keys_pressed[pygame.K_RIGHT]and perso.x + DIST < WIDTH - PERSO_WIDTH:  #si flèche droite pressée et ne sort pas du cadre
+        perso.x += DIST   #perso se déplace  à droite
+    if keys_pressed[pygame.K_UP] and perso.y - DIST > 0:   #si flèche haut pressée et ne sort pas du cadre
+        perso.y -= DIST    #perso se déplace vers le haut
+    if keys_pressed[pygame.K_DOWN] and perso.y + DIST < HEIGHT - PERSO_HEIGHT:   #si flèche bas pressée et ne sort pas du cadre
+        perso.y += DIST    #perso se déplace vers le bas
+
+
 
 
 
@@ -220,16 +207,15 @@ def main():
 
                 if map_haut ==1:
                     FENETRE.blit(che2, (0, 0))
-                    chemin_2 = 1
                 elif map_haut ==2:
                     if map_gauche == 1 and map_1[i]==1:
                         FENETRE.blit(cul_de_sac, (0,0))
                         culdesac = 1
                     elif map_gauche == 1 and map_1[i]==2:
-                        FENETRE.blit(toutdroit, (0, 0))
+                        FENETRE.blit(toutdroit2, (0, 0))
                         print("t 1")
                     elif map_droite == 1 and map_1[i]==1:
-                        FENETRE.blit(toutdroit2, (0,0))
+                        FENETRE.blit(toutdroit, (0,0))
                         print("t 2")
                     elif map_droite == 1 and map_1[i]==2:
                         print("c d s 2")
@@ -307,6 +293,9 @@ def main():
                             for i in range(7):
                                 map_1.append(random.choice([1, 2]))
                             i = 0
+                    
+
+                    #FENETRE.blit(che2, (0, 0))
 
                 keys_pressed = pygame.key.get_pressed() 
                 perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
@@ -333,7 +322,6 @@ def main():
 
                 if map_haut ==1:
                     FENETRE.blit(che2, (0, 0))
-                    chemin_2 = 1
                 elif map_haut ==2:
                     if map_gauche == 1 and map_2[i]==1:
                         #print(map)
@@ -341,10 +329,10 @@ def main():
                         FENETRE.blit(cul_de_sac, (0,0))
                         culdesac = 1
                     elif map_gauche == 1 and map_2[i]==2:
-                        FENETRE.blit(toutdroit, (0, 0))
+                        FENETRE.blit(toutdroit2, (0, 0))
                         print("t 1")
                     elif map_droite == 1 and map_2[i]==1:
-                        FENETRE.blit(toutdroit2, (0,0))
+                        FENETRE.blit(toutdroit, (0,0))
                         print("t 2")
                     elif map_droite == 1 and map_2[i]==2:
                         print("c d s 2")
@@ -424,6 +412,8 @@ def main():
                             i = 0
                     
 
+                    #FENETRE.blit(che2, (0, 0))
+
                 keys_pressed = pygame.key.get_pressed() 
                 perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
                 FENETRE.blit(PERSO, (perso.x, perso.y))
@@ -441,7 +431,7 @@ def main():
                 keys_pressed = pygame.key.get_pressed() 
                 perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
                 FENETRE.blit(PERSO, (perso.x, perso.y))
-                if i <12 and choix[0] == 1 and map_3[i] != 3:
+                if choix[0] == 1 and map_3[i] != 3:
                     FENETRE.blit(droit, (0, 0))
                     keys_pressed = pygame.key.get_pressed() 
                     perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
@@ -457,17 +447,17 @@ def main():
 
                     if map_haut ==1:
                         FENETRE.blit(che2, (0, 0))
-                        chemin_2 = 1
+                    
                     elif map_haut ==2:
                         if map_gauche == 1 and map_3[i]==1:
                             FENETRE.blit(cul_de_sac, (0,0))
                             culdesac = 1
                         elif map_gauche == 1 and map_3[i]==2:
-                            FENETRE.blit(toutdroit, (0, 0))
+                            FENETRE.blit(toutdroit2, (0, 0))
                             choix.clear()
                             choix.append(random.choice([1,2]))
                         elif map_droite == 1 and map_3[i]==1:
-                            FENETRE.blit(toutdroit2, (0,0))
+                            FENETRE.blit(toutdroit, (0,0))
                             choix.clear()
                             choix.append(random.choice([1,2]))
                         elif map_droite == 1 and map_3[i]==2:
@@ -536,7 +526,7 @@ def main():
                             FENETRE.blit(cul_de_sac, (0,0))
                             culdesac = 1
                         elif map_gauche == 1 and map_3[i]==2:
-                            FENETRE.blit(toutdroit, (0, 0))
+                            FENETRE.blit(toutdroit2, (0, 0))
                             choix.clear()
                             choix.append(random.choice([1,2]))
                         elif map_gauche == 1 and map_3[i]==3:
@@ -553,7 +543,7 @@ def main():
                             choix.clear()
                             choix.append(random.choice([1,2]))
                         elif map_droite == 1 and map_3[i]==1:
-                            FENETRE.blit(toutdroit2, (0,0))
+                            FENETRE.blit(toutdroit, (0,0))
                             choix.clear()
                             choix.append(random.choice([1,2]))
                         elif map_droite == 1 and map_3[i]==2:
@@ -635,7 +625,8 @@ def main():
                             for i in range(12):
                                 map_3.append(random.choice([1, 2, 3]))
                             i = 0
-                            
+
+                    #FENETRE.blit(che2, (0, 0))
 
                 keys_pressed = pygame.key.get_pressed() 
                 perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
