@@ -308,9 +308,9 @@ def main():
                     keys_pressed = pygame.key.get_pressed() 
                     perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
                     FENETRE.blit(PERSO, (perso.x, perso.y))
-                    Startps=time.time()#temps depart
-                    Actualtemps=Startps-tZero
-                    texts = smallfont.render(str(round(Actualtemps)), True, (255,255,255))#transformation du temps en texte
+                    Start_time=time.time()#temps depart
+                    Actual_time=Start_time-tZero
+                    texts = smallfont.render(str(round(Actual_time)), True, (255,255,255))#transformation du temps en texte
                     pygame.draw.rect(FENETRE,ROSE,[WIDTH-999,HEIGHT-690,62,30])#creation zone pour affichage temps
                     FENETRE.blit(texts,(20,10))#affichage du temps
                     FENETRE.blit(TIME, (0,15))#affichage icon horloge
@@ -434,9 +434,9 @@ def main():
                     keys_pressed = pygame.key.get_pressed() 
                     perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
                     FENETRE.blit(PERSO, (perso.x, perso.y))
-                    Startps=time.time()#temps depart
-                    Actualtemps=Startps-tZero
-                    texts = smallfont.render(str(round(Actualtemps)), True, (255,255,255))#transformation du temps en texte
+                    Start_time=time.time()#temps depart
+                    Actual_time=Start_time-tZero
+                    texts = smallfont.render(str(round(Actual_time)), True, (255,255,255))#transformation du temps en texte
                     pygame.draw.rect(FENETRE,ROSE,[WIDTH-999,HEIGHT-690,62,30])#creation zone pour affichage temps
                     FENETRE.blit(texts,(20,10))#affichage du temps
                     FENETRE.blit(TIME, (0,15))#affichage icon horloge
@@ -658,9 +658,9 @@ def main():
                     keys_pressed = pygame.key.get_pressed() 
                     perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
                     FENETRE.blit(PERSO, (perso.x, perso.y))
-                    Startps=time.time()#temps depart
-                    Actualtemps=Startps-tZero
-                    texts = smallfont.render(str(round(Actualtemps)), True, (255,255,255))#transformation du temps en texte
+                    Start_time=time.time()#temps depart
+                    Actual_time=Start_time-tZero
+                    texts = smallfont.render(str(round(Actual_time)), True, (255,255,255))#transformation du temps en texte
                     pygame.draw.rect(FENETRE,ROSE,[WIDTH-999,HEIGHT-690,62,30])#creation zone pour affichage temps
                     FENETRE.blit(texts,(20,10))#affichage du temps
                     FENETRE.blit(TIME, (0,15))#affichage icon horloge
