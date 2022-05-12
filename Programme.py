@@ -25,14 +25,14 @@ cul_de_sac = pygame.transform.scale(cul_de_sac_2, (WIDTH, HEIGHT))
 FOND2_1=pygame.image.load("image/FOND2.jpg").convert()
 FOND2 = pygame.transform.scale(FOND2_1, (WIDTH, HEIGHT))
 
-FINISH_1=pygame.image.load("image/maison.jpg").convert()
+FINISH_1=pygame.image.load("image/maison.jpg").convert()#Map de fin
 FINISH= pygame.transform.scale(FINISH_1, (WIDTH, HEIGHT))
 
-che2_1=pygame.image.load("image/deuxchemin.jpg").convert()
+che2_1=pygame.image.load("image/deuxchemin.jpg").convert()#Map du chemin a deux issus
 che2_2= pygame.transform.rotate(che2_1,90)
 che2 = pygame.transform.scale(che2_2, (WIDTH, HEIGHT))
 
-che3_1=pygame.image.load("image/troischemins.jpg").convert()
+che3_1=pygame.image.load("image/troischemins.jpg").convert()#Map du chemin a trois issus
 che3_2= pygame.transform.rotate(che3_1,90)
 che3 = pygame.transform.scale(che3_2, (WIDTH, HEIGHT))
 
@@ -57,7 +57,6 @@ MUSIQUE = pygame.mixer.music.load("Musique/musique.wav")
 #Chargement du personnage
 PERSONNAGE = pygame.image.load(os.path.join("image", "perso.png"))
 PERSO = pygame.transform.scale(PERSONNAGE, (PERSO_WIDTH, PERSO_HEIGHT))    #redimensionnage du perso
-#si rotation voulue utilier pygame.transform.rotate()
 
 NOTICE_1 = pygame.image.load("image/regles.png").convert() #importation de l'image NOTICE
 NOTICE =  pygame.transform.scale(NOTICE_1, (700,300))
@@ -71,15 +70,29 @@ NIVEAU2 =  pygame.transform.scale(NIVEAU_2, (200,350))
 NIVEAU_3 = pygame.image.load("image/niveau3.png").convert_alpha() #importation de l'image niveau3
 NIVEAU3 =  pygame.transform.scale(NIVEAU_3, (200,350))
 
+TIME_1 = pygame.image.load("image/clock_icon.png").convert_alpha() #importation de l'image chronometre
+TIME =  pygame.transform.scale(TIME_1, (20,20))
+
+TIMEWIN_1 = pygame.image.load("image/trophy_icon.png").convert_alpha() #importation de l'image pour le meilleur temps
+TIMEWIN =  pygame.transform.scale(TIMEWIN_1, (50,50))
+
+
 #variables couleurs
 WHITE = (255, 255, 255)
 color_light = (130,170,210)
 color_dark = (100,125,190)
+ROSE = (211,50,100)
 
-smallfont = pygame.font.SysFont('arial',35) #police et taille de texte 
-text = smallfont.render('?' , True , WHITE) # point d'interrogation
+#police et taille de texte
+bigfont = pygame.font.SysFont('arial',35)  
+smallfont=pygame.font.SysFont('arial',25)
 
+#Texte
+text = bigfont.render('?' , True , WHITE)
+score=smallfont.render('TEMPS:' , True , WHITE)
+score2=smallfont.render('MEILLEUR TEMPS:' , True , WHITE)
 
+#Liste des indices necessaires pour gagner selon les niveaux(1/2/3)
 map_1 = []
 for i in range(7):
     map_1.append(random.choice([1, 2]))
@@ -103,19 +116,14 @@ def perso_mouvement(keys_pressed,perso):
         perso.y -= DIST    #perso se déplace vers le haut
     if keys_pressed[pygame.K_DOWN] and perso.y + DIST < HEIGHT - PERSO_HEIGHT:   #si flèche bas pressée et ne sort pas du cadre
         perso.y += DIST    #perso se déplace vers le bas
-
-
-
-
-
     
-
+#fonction principale
 def main():
     perso = pygame.Rect(450, 600, PERSO_WIDTH, PERSO_HEIGHT) #coordonnées du perso avec la fonction rect
     clock = pygame.time.Clock()
-    tZero=time.time() #Récupération de tZero
-    t=time.time() -tZero # Temps après tZero
     pygame.mixer.music.play(-1,0.0)
+    tZero=time.time() #Récupération de tZero
+    #initialisation des variables/listes/booléens
     run = True
     aide= False
     jouer=False
@@ -139,7 +147,7 @@ def main():
 
         FENETRE.blit(FOND, (0,0)) #affichage du fond
         for event in pygame.event.get(): #pour les actions effectués dans la fenetre pygame
-            if event.type == pygame.QUIT:    #si croix rouge
+            if event.type == pygame.QUIT:    #si on ferme la fenetre
                 run = False    # alors run = 0 donc sort de la boucle while
                 
             if event.type == pygame.MOUSEBUTTONDOWN: #si on appuie sur la souris
@@ -148,25 +156,22 @@ def main():
                         aide=True #ouvre l'aide
                     else:
                         aide=False#n'ouvre pas l'aide ou la ferme
-
-
-        
-
-
-                
-                if WIDTH-825 <= mouse[0] <= WIDTH-825+175 and HEIGHT-450 <= mouse[1] <= HEIGHT-450+300 and jouer:
+                #bouton niveau 1
+                if WIDTH-825 <= mouse[0] <= WIDTH-825+175 and HEIGHT-450 <= mouse[1] <= HEIGHT-450+300 and jouer: 
                     if niveau1==False:
                         niveau1=True
 
+                #bouton niveau 2
                 if WIDTH-600 <= mouse[0] <= WIDTH-600+175 and HEIGHT-450 <= mouse[1] <= HEIGHT-450+300 and jouer:
                     if niveau2==False:
                         niveau2=True
 
-
+                #bouton niveau 3
                 if WIDTH-375 <= mouse[0] <= WIDTH-425+175 and HEIGHT-450 <= mouse[1] <= HEIGHT-450+300 and jouer:
                     if niveau3==False:
                         niveau3=True
-
+                
+                #bouton jouer
                 if WIDTH-750 <= mouse[0] <= WIDTH-750+500 and HEIGHT-400 <= mouse[1] <= HEIGHT-400+200:
                     if jouer==False:
                         jouer=True
@@ -179,23 +184,23 @@ def main():
 
         else:
             pygame.draw.rect(FOND,color_dark,[WIDTH-40,HEIGHT-690,40,40]) #crée un rectangle gris foncé si la souris n'est pas dessus
-            FENETRE.blit(text , (WIDTH-30,HEIGHT-690))
+            FENETRE.blit(text , (WIDTH-30,HEIGHT-690))#affiche le point d'interrogation sur le rectangle
 
         
         if aide:
-            FENETRE.blit(NOTICE,(50,0))
+            FENETRE.blit(NOTICE,(50,0))#affichage de l'image aide 
         
 
-        if jouer:
+        if jouer:#si on a appuyé sur "jouer"
 
-            if niveau1:
+            if niveau1:#si on a choisis le niveau 1
                 
                 print(map_1)
                 print(map_droite)
                 print(map_gauche)
                 print(i)
                 print(niveau1)
-                FENETRE.blit(droit, (0, 0))
+                FENETRE.blit(droit, (0, 0))#affichage de la map de depart
                 if perso.y - DIST <= 0:
                     if WIDTH-950 <= perso.x <= WIDTH-950+275 and map_haut:
                         map_gauche+=1
@@ -223,13 +228,18 @@ def main():
                         culdesac = 1
                 elif culdesac == 1:
                     print(map_droite)
-                    FENETRE.blit(game_over, (0, 0))
-                    game_over_45 = 1
-                    i=0
+                    FENETRE.blit(game_over, (0, 0))#affichage de l'image Game over
+                    FENETRE.blit(TIMEWIN,(WIDTH-700,HEIGHT-500))#affichage de l'image pour le meilleur temps
+                    FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))#affichage de l'image horloge
+                    FENETRE.blit(score , (WIDTH-630,HEIGHT-525))#texte temps
+                    FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))#texte meilleur temps
+                    game_over_45 = 1 #la variable passe à 1
+                    i=0 #i revient a 0
                     print(niveau3)
+                    #si on appuie sur "rejouer" les variables retournent à 0
                     for event in pygame.event.get():
                         if event.type == pygame.MOUSEBUTTONDOWN:
-                            if WIDTH-600 <= mouse[0] <= WIDTH-600+175 and HEIGHT-450 <= mouse[1] <= HEIGHT-450+300 :
+                            if WIDTH-600 <= mouse[0] <= WIDTH-600+175 and HEIGHT-450 <= mouse[1] <= HEIGHT-450+300 : 
                                 game_over_45 = 0
                                 map_gauche = 0
                                 map_droite = 0
@@ -237,7 +247,8 @@ def main():
                                 map_bas = 0
                                 culdesac = 0
                                 i = 0
-                        elif event.type == pygame.KEYDOWN:
+                                tZero=time.time() #Récupération de tZero
+                        elif event.type == pygame.KEYDOWN:#si on appuie sur "Entrée" les variables retournent à 0
                             if event.key == K_RETURN:
                                 niveau1 = False
                                 game_over_45 = 0
@@ -247,9 +258,8 @@ def main():
                                 map_bas = 0
                                 culdesac = 0
                                 i = 0
-                                
-                elif game_over_45 == 1 :
-                    FENETRE.blit(game_over, (0, 0))
+                                tZero=time.time()
+                    
                     
                 else :
                     if map_haut != 0:
@@ -270,6 +280,7 @@ def main():
                             map_haut = 0
                             map_bas = 0
                             culdesac = 0
+                            tZero=time.time()
                             map_1.clear()
                             print(map_1)
                             for i in range(7):
@@ -297,6 +308,13 @@ def main():
                     keys_pressed = pygame.key.get_pressed() 
                     perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
                     FENETRE.blit(PERSO, (perso.x, perso.y))
+                    Startps=time.time()#temps depart
+                    Actualtemps=Startps-tZero
+                    texts = smallfont.render(str(round(Actualtemps)), True, (255,255,255))#transformation du temps en texte
+                    pygame.draw.rect(FENETRE,ROSE,[WIDTH-999,HEIGHT-690,62,30])#creation zone pour affichage temps
+                    FENETRE.blit(texts,(20,10))#affichage du temps
+                    FENETRE.blit(TIME, (0,15))#affichage icon horloge
+                    
             elif niveau2:
                 
                 print(map_2)
@@ -335,6 +353,10 @@ def main():
                 elif culdesac == 1:
                     print(map_droite)
                     FENETRE.blit(game_over, (0, 0))
+                    FENETRE.blit(TIMEWIN,(WIDTH-700,HEIGHT-500))
+                    FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))
+                    FENETRE.blit(score , (WIDTH-630,HEIGHT-525))
+                    FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))
                     game_over_45 = 1
                     i=0
                     print(niveau2)
@@ -348,6 +370,7 @@ def main():
                                 map_bas = 0
                                 culdesac = 0
                                 i = 0
+                                tZero=time.time()
                         elif event.type == pygame.KEYDOWN:
                             if event.key == K_RETURN:
                                 niveau2 = False
@@ -358,6 +381,7 @@ def main():
                                 map_bas = 0
                                 culdesac = 0
                                 i = 0
+                                tZero=time.time()
                                 
                 elif game_over_45 == 1 :
                     FENETRE.blit(game_over, (0, 0))
@@ -381,6 +405,7 @@ def main():
                             map_haut = 0
                             map_bas = 0
                             culdesac = 0
+                            tZero=time.time()
                             map_2.clear()
                             print(map_2)
                             for i in range(13):
@@ -399,6 +424,7 @@ def main():
                             map_haut = 0
                             map_bas = 0
                             culdesac = 0
+                            tZero=time.time()
                             map_2.clear()
                             print(map_2)
                             for i in range(13):
@@ -408,7 +434,12 @@ def main():
                     keys_pressed = pygame.key.get_pressed() 
                     perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
                     FENETRE.blit(PERSO, (perso.x, perso.y))
-                                
+                    Startps=time.time()#temps depart
+                    Actualtemps=Startps-tZero
+                    texts = smallfont.render(str(round(Actualtemps)), True, (255,255,255))#transformation du temps en texte
+                    pygame.draw.rect(FENETRE,ROSE,[WIDTH-999,HEIGHT-690,62,30])#creation zone pour affichage temps
+                    FENETRE.blit(texts,(20,10))#affichage du temps
+                    FENETRE.blit(TIME, (0,15))#affichage icon horloge
             elif niveau3:
                 
                 print(map_3)
@@ -451,6 +482,10 @@ def main():
                     elif culdesac == 1:
                         print(map_droite)
                         FENETRE.blit(game_over, (0, 0))
+                        FENETRE.blit(TIMEWIN,(WIDTH-700,HEIGHT-500))
+                        FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))
+                        FENETRE.blit(score , (WIDTH-630,HEIGHT-525))
+                        FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))
                         game_over_45 = 1
                         i=0
                         print(niveau3)
@@ -464,6 +499,7 @@ def main():
                                     map_bas = 0
                                     culdesac = 0
                                     i = 0
+                                    tZero=time.time()
                             elif event.type == pygame.KEYDOWN:
                                 if event.key == K_RETURN:
                                     niveau3 = False
@@ -474,6 +510,7 @@ def main():
                                     map_bas = 0
                                     culdesac = 0
                                     i = 0
+                                    tZero=time.time()
                                 
                     elif game_over_45 == 1 :
                         FENETRE.blit(game_over, (0, 0))
@@ -537,6 +574,10 @@ def main():
                     elif culdesac == 1:
                         print(map_droite)
                         FENETRE.blit(game_over, (0, 0))
+                        FENETRE.blit(TIMEWIN,(WIDTH-700,HEIGHT-500))
+                        FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))
+                        FENETRE.blit(score , (WIDTH-630,HEIGHT-525))
+                        FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))
                         game_over_45 = 1
                         i=0
                         print(niveau3)
@@ -550,6 +591,7 @@ def main():
                                     map_bas = 0
                                     culdesac = 0
                                     i = 0
+                                    tZero=time.time()
                             elif event.type == pygame.KEYDOWN:
                                 if event.key == K_RETURN:
                                     niveau3 = False
@@ -560,6 +602,7 @@ def main():
                                     map_bas = 0
                                     culdesac = 0
                                     i = 0
+                                    tZero=time.time()
                                 
                     elif game_over_45 == 1 :
                         FENETRE.blit(game_over, (0, 0))
@@ -584,6 +627,7 @@ def main():
                             map_haut = 0
                             map_bas = 0
                             culdesac = 0
+                            tZero=time.time()
                             map_3.clear()
                             print(map_3)
                             for i in range(12):
@@ -602,6 +646,7 @@ def main():
                             map_haut = 0
                             map_bas = 0
                             culdesac = 0
+                            tZero=time.time()
                             map_3.clear()
                             print(map_1)
                             for i in range(12):
@@ -613,14 +658,20 @@ def main():
                     keys_pressed = pygame.key.get_pressed() 
                     perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
                     FENETRE.blit(PERSO, (perso.x, perso.y))
+                    Startps=time.time()#temps depart
+                    Actualtemps=Startps-tZero
+                    texts = smallfont.render(str(round(Actualtemps)), True, (255,255,255))#transformation du temps en texte
+                    pygame.draw.rect(FENETRE,ROSE,[WIDTH-999,HEIGHT-690,62,30])#creation zone pour affichage temps
+                    FENETRE.blit(texts,(20,10))#affichage du temps
+                    FENETRE.blit(TIME, (0,15))#affichage icon horloge
 
             else:
         
         
-                FENETRE.blit(FOND2, (0, 0))
-                FENETRE.blit(NIVEAU1, (200,230))
-                FENETRE.blit(NIVEAU2, (400,250))
-                FENETRE.blit(NIVEAU3, (600,260))
+                FENETRE.blit(FOND2, (0, 0))#map du menu
+                FENETRE.blit(NIVEAU1, (200,230))#icone niveau 1
+                FENETRE.blit(NIVEAU2, (400,250))#icone niveau 2
+                FENETRE.blit(NIVEAU3, (600,260))#icone niveau 3
 
         pygame.display.update()  # rafraichissement de la page
 
@@ -628,4 +679,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main() #appel fonction principale
