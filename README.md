@@ -1,4 +1,4 @@
-# Projet-Candy Maze
+## Projet-Candy Maze
 
 **GROUPE**
 Charlotte LORILLARD, Luna TORRES NAVARRO, Stella CARIDI
