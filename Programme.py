@@ -139,8 +139,7 @@ def main():
     choix = []
     choix.append(random.choice([1,2]))
     print(choix)
-
-            
+    
     while run:
 
         FENETRE.blit(FOND, (0,0)) #affichage du fond
@@ -173,8 +172,7 @@ def main():
                 if WIDTH-750 <= mouse[0] <= WIDTH-750+500 and HEIGHT-400 <= mouse[1] <= HEIGHT-400+200:
                     if jouer==False:
                         jouer=True
-       
-            
+           
         mouse = pygame.mouse.get_pos() #coordonnées de la souris
         if WIDTH-30 <= mouse[0] <= WIDTH-30+40 and HEIGHT-690 <= mouse[1] <= HEIGHT-690+40:
             pygame.draw.rect(FOND,color_light,[WIDTH-40,HEIGHT-690,40,40]) #crée un rectangle gris clair si on passe la souris dessus
@@ -438,6 +436,7 @@ def main():
                     pygame.draw.rect(FENETRE,ROSE,[WIDTH-999,HEIGHT-690,62,30])#creation zone pour affichage temps
                     FENETRE.blit(texts,(20,10))#affichage du temps
                     FENETRE.blit(TIME, (0,15))#affichage icon horloge
+                    
             elif niveau3:
                 
                 print(map_3)
@@ -664,8 +663,6 @@ def main():
                     FENETRE.blit(TIME, (0,15))#affichage icon horloge
 
             else:
-        
-        
                 FENETRE.blit(FOND2, (0, 0))#map du menu
                 FENETRE.blit(NIVEAU1, (200,230))#icone niveau 1
                 FENETRE.blit(NIVEAU2, (400,250))#icone niveau 2
@@ -674,7 +671,6 @@ def main():
         pygame.display.update()  # rafraichissement de la page
 
     pygame.quit()  # fermeture propre de la fenêtre
-
 
 if __name__ == "__main__":
     main() #appel fonction principale
