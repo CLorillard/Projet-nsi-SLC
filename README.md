@@ -33,6 +33,6 @@ Pygame :
 
 + https://pub.phyks.me/sdz/sdz/interface-graphique-pygame-pour-python.html
 
-
-[planning](https://github.com/CLorillard/Projet-nsi-SLC/blob/main/Planning)
+## DIVISIONS DES TACHES
+voir [planning](https://github.com/CLorillard/Projet-nsi-SLC/blob/main/Planning)
 
