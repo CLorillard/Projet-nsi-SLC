@@ -4,10 +4,11 @@ from pygame.locals import *
 pygame.init()
 pygame.mixer.init()
 
-#ouverture de la fenetre pygame
+#ouverture de la fenetre pygame et définition taille de la fenetre
 WIDTH, HEIGHT = 1000, 700
-FENETRE = pygame.display.set_mode((WIDTH, HEIGHT))  #définition taille de la fenetre
-pygame.display.set_caption("CANDY MAZE")    #nom de la fenetre
+FENETRE = pygame.display.set_mode((WIDTH, HEIGHT))  
+#nom de la fenetre
+pygame.display.set_caption("CANDY MAZE")    
 
 #Chargement des fonds
 FOND_1 = pygame.image.load("image/background.jpg").convert()
