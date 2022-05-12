@@ -1,29 +1,18 @@
 # Projet-Candy Maze
-DEPOT
 
+**GROUPE**
 Charlotte LORILLARD, Luna TORRES NAVARRO, Stella CARIDI
 
-**_SUJET 2_** : 
-   Un jeux style temple run en 2D mais on serait dans un labyrinthe donc le joueur devrait retenir l'ordre de virages pour sortir. Game over lorsque l'on est dans un cul de sac.  
-  
-  
-  Jeu de labyrinthe
-  - 3 niveaux : facile, moyen, difficile:
-      - La longueur du labyrinthe sera plus longue et le nombre d'issues ( 3 max ) plus grand selon le niveau de difficulté choisi.
-  - Tant que le niveau n'est pas réussi : 
-      - le labyrinthe reste le même pour permettre au joueur de memoriser le chemin a suivre.
-  - sinon :
-     -  Le labyrinthe se mélange lorsque le joueur réussi.
-     - Donc ,le joueur peut choisir de refaire le même niveau mais le labyrinthe ne sera plus le même.
-  - un seul joueur (personnage pain d'épice)
-  - petite musique
-  - pas de retour en arrière quand on est dans une impasse on perd
-  - monnaie récoltée dans le jeu permet de débloquer le niveau supérieur
-  - se joue avec les trois flèches du clavier ( en haut, à droite, à  gauche ) 
-  - vu de dos 
-  - jeu en pixel 
-  - en 2D
- 
+**PRINCIPE DU JEU**
+C'est un jeu de labyrinthe avec trois niveaux différents du plus simple au plus difficile. Le but est simple, il faut aider le bonhomme en pain d'épice qui s'est perdu dans le monde des bonbons, à retrouver sa maison. Pour cela le joueur devra choisir le bon chemin. Attention, il est facile de se perdre et de finir dans une impasse ! Dans ce cas la partie est finie, le joueur a perdu.
+
+**LANCER LE JEU**
+Il faut télécharger les fichiers ```Musique``` et ```image```,ainsi que ```Programme.py``` puis lancer ce dernier dans un IDE
+
+**DETAILS DU JEU**
+Jeu en 2D qui se joue seul en utilisant les flèches du clavier(droite,gauche,haut). Le labyrinthe change a chaque partie mais la logique pour gagner reste la même selon le niveau. La musique tourne en boucle de manière a rendre l'expérience stressante et provoquer l'envie de rejouer pour gagner. 
+
+**LIENS** 
 Exemples programmations : 
 
 http://nsinfo.yo.fr/nsi_term_projet_2.html
@@ -44,6 +33,6 @@ Pygame :
 
 https://pub.phyks.me/sdz/sdz/interface-graphique-pygame-pour-python.html
 
+
 [planning](https://github.com/CLorillard/Projet-nsi-SLC/blob/main/Planning)
 
-Fait le Vendredi 7/01: Déplacement personnage sur map et tentative de bouton pour afficher les règles du jeu.
