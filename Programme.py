@@ -18,7 +18,7 @@ FOND = pygame.transform.scale(FOND_1, (WIDTH, HEIGHT))
 game_over_1= pygame.image.load("image/gameover.jpg").convert()
 game_over = pygame.transform.scale(game_over_1, (WIDTH, HEIGHT))
 
-cul_de_sac_1= pygame.image.load("image/cusdesac.jpg").convert()
+cul_de_sac_1= pygame.image.load("image/culdesac.jpg").convert()
 cul_de_sac_2=pygame.transform.rotate(cul_de_sac_1,+90)
 cul_de_sac = pygame.transform.scale(cul_de_sac_2, (WIDTH, HEIGHT))
 
@@ -113,6 +113,8 @@ def perso_mouvement(keys_pressed,perso):
 def main():
     perso = pygame.Rect(450, 600, PERSO_WIDTH, PERSO_HEIGHT) #coordonnées du perso avec la fonction rect
     clock = pygame.time.Clock()
+    tZero=time.time() #Récupération de tZero
+    t=time.time() -tZero # Temps après tZero
     pygame.mixer.music.play(-1,0.0)
     run = True
     aide= False
@@ -125,7 +127,7 @@ def main():
     map_haut = 0
     map_bas = 0
     map_milieu = 0
-    culdesac = 0
+    culdesac = 0 
     i=0
     game_over_45 = 0
     choix = []
@@ -182,6 +184,7 @@ def main():
         
         if aide:
             FENETRE.blit(NOTICE,(50,0))
+        
 
         if jouer:
 
@@ -193,9 +196,6 @@ def main():
                 print(i)
                 print(niveau1)
                 FENETRE.blit(droit, (0, 0))
-                keys_pressed = pygame.key.get_pressed() 
-                perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
-                FENETRE.blit(PERSO, (perso.x, perso.y))
                 if perso.y - DIST <= 0:
                     if WIDTH-950 <= perso.x <= WIDTH-950+275 and map_haut:
                         map_gauche+=1
@@ -293,13 +293,10 @@ def main():
                             for i in range(7):
                                 map_1.append(random.choice([1, 2]))
                             i = 0
-                    
-
-                    #FENETRE.blit(che2, (0, 0))
-
-                keys_pressed = pygame.key.get_pressed() 
-                perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
-                FENETRE.blit(PERSO, (perso.x, perso.y))
+                if game_over_45 != 1:
+                    keys_pressed = pygame.key.get_pressed() 
+                    perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
+                    FENETRE.blit(PERSO, (perso.x, perso.y))
             elif niveau2:
                 
                 print(map_2)
@@ -308,9 +305,6 @@ def main():
                 print(i)
                 print(niveau2)
                 FENETRE.blit(droit, (0, 0))
-                keys_pressed = pygame.key.get_pressed() 
-                perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
-                FENETRE.blit(PERSO, (perso.x, perso.y))
                 if perso.y - DIST <= 0:
                     if WIDTH-950 <= perso.x <= WIDTH-950+275 and map_haut:
                         map_gauche+=1
@@ -410,13 +404,10 @@ def main():
                             for i in range(13):
                                 map_2.append(random.choice([1, 2]))
                             i = 0
-                    
-
-                    #FENETRE.blit(che2, (0, 0))
-
-                keys_pressed = pygame.key.get_pressed() 
-                perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
-                FENETRE.blit(PERSO, (perso.x, perso.y))
+                if game_over_45 != 1:
+                    keys_pressed = pygame.key.get_pressed() 
+                    perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
+                    FENETRE.blit(PERSO, (perso.x, perso.y))
                                 
             elif niveau3:
                 
@@ -428,14 +419,8 @@ def main():
                 print(niveau3)
                 print(choix)
                 FENETRE.blit(droit, (0, 0))
-                keys_pressed = pygame.key.get_pressed() 
-                perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
-                FENETRE.blit(PERSO, (perso.x, perso.y))
                 if choix[0] == 1 and map_3[i] != 3:
                     FENETRE.blit(droit, (0, 0))
-                    keys_pressed = pygame.key.get_pressed() 
-                    perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
-                    FENETRE.blit(PERSO, (perso.x, perso.y))
                     if perso.y - DIST <= 0:
                         if WIDTH-950 <= perso.x <= WIDTH-950+275 and map_haut:
                             map_gauche+=1
@@ -502,9 +487,6 @@ def main():
                 
                 else :
                     FENETRE.blit(droit, (0, 0))
-                    keys_pressed = pygame.key.get_pressed() 
-                    perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
-                    FENETRE.blit(PERSO, (perso.x, perso.y))
                     if perso.y - DIST <= 0:
                         if WIDTH-1000 <= perso.x <= WIDTH-1000+275 and map_haut:
                             map_gauche+=1
@@ -627,10 +609,10 @@ def main():
                             i = 0
 
                     #FENETRE.blit(che2, (0, 0))
-
-                keys_pressed = pygame.key.get_pressed() 
-                perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
-                FENETRE.blit(PERSO, (perso.x, perso.y))
+                if game_over_45 != 1:
+                    keys_pressed = pygame.key.get_pressed() 
+                    perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
+                    FENETRE.blit(PERSO, (perso.x, perso.y))
 
             else:
         
