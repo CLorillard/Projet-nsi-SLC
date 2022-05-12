@@ -4,7 +4,7 @@
 Charlotte LORILLARD, Luna TORRES NAVARRO, Stella CARIDI
 
 ## **PRINCIPE DU JEU**
-C'est un jeu de labyrinthe avec trois niveaux différents du plus simple au plus difficile. Le but est simple, il faut aider le bonhomme en pain d'épice qui s'est perdu dans le monde des bonbons, à retrouver sa maison. Pour cela le joueur devra choisir le bon chemin. Attention, il est facile de se perdre et de finir dans une impasse ! Dans ce cas la partie est finie, le joueur a perdu.
+C'est un jeu de labyrinthe avec trois niveaux différents du plus simple au plus difficile. Le but est d'aider le bonhomme en pain d'épice qui s'est perdu dans le monde des bonbons, à retrouver sa maison. Pour cela le joueur devra choisir le bon chemin. Attention, il est facile de se perdre et de finir dans une impasse ! Dans ce cas la partie est finie, le joueur a perdu.
 
 ## **LANCER LE JEU**
 Il faut télécharger les fichiers ```Musique``` et ```image```,ainsi que ```Programme.py``` puis lancer ce dernier dans un IDE
