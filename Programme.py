@@ -1,10 +1,8 @@
+#importation des bibliothèques et modules
 import pygame, time, os, random
-
 from pygame.locals import *
-
 pygame.init()
 pygame.mixer.init()
-
 
 #ouverture de la fenetre pygame
 WIDTH, HEIGHT = 1000, 700
