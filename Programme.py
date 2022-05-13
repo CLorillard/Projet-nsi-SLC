@@ -273,14 +273,12 @@ def main():
                         if event.key == K_RETURN:
                             niveau1 = False
                             i = 0
-                            print(i)
                             map_gauche = 0
                             map_droite = 0
                             map_haut = 0
                             map_bas = 0
                             culdesac = 0
                             map_1.clear()
-                            print(map_1)
                             for i in range(7):
                                 map_1.append(random.choice([1, 2]))
                             i = 0
@@ -329,7 +327,6 @@ def main():
                         culdesac = 1
 
                 elif culdesac == 1:
-                    print(map_droite)
                     FENETRE.blit(game_over, (0, 0))
                     FENETRE.blit(TIMEWIN,(WIDTH-700,HEIGHT-500))
                     FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))
@@ -379,7 +376,6 @@ def main():
                         if event.key == K_RETURN:
                             niveau2 = False
                             i = 0
-                            print(i)
                             map_gauche = 0
                             map_droite = 0
                             map_haut = 0
@@ -387,7 +383,6 @@ def main():
                             culdesac = 0
                             tZero=time.time()
                             map_2.clear()
-                            print(map_2)
                             for i in range(13):
                                 map_2.append(random.choice([1, 2]))
                             i = 0
@@ -540,7 +535,6 @@ def main():
                             culdesac = 1
 
                     elif culdesac == 1:
-                        print(map_droite)
                         FENETRE.blit(game_over, (0, 0))
                         FENETRE.blit(TIMEWIN,(WIDTH-700,HEIGHT-500))
                         FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))
@@ -590,7 +584,6 @@ def main():
                         if event.key == K_RETURN:
                             niveau3 = False
                             i = 0
-                            print(i)
                             map_gauche = 0
                             map_droite = 0
                             map_haut = 0
@@ -598,7 +591,6 @@ def main():
                             culdesac = 0
                             tZero=time.time()
                             map_3.clear()
-                            print(map_1)
                             for i in range(12):
                                 map_3.append(random.choice([1, 2, 3]))
                             i = 0
