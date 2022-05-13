@@ -139,7 +139,6 @@ def main():
     game_over_45 = 0
     choix = []
     choix.append(random.choice([1,2]))
-    print(choix)
     
     while run:
 
@@ -651,7 +650,6 @@ def main():
                                 map_3.append(random.choice([1, 2, 3]))
                             i = 0
 
-                    #FENETRE.blit(che2, (0, 0))
                 if game_over_45 != 1:
                     keys_pressed = pygame.key.get_pressed() 
                     perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
