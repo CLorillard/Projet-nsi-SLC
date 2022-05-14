@@ -24,7 +24,7 @@ cul_de_sac = pygame.transform.scale(cul_de_sac_2, (WIDTH, HEIGHT))
 FOND2_1=pygame.image.load("image/FOND2.jpg").convert()
 FOND2 = pygame.transform.scale(FOND2_1, (WIDTH, HEIGHT))
 
-FINISH_1=pygame.image.load("image/maison.jpg").convert()#Map de fin
+FINISH_1=pygame.image.load("image/newmaison.jpg").convert()#Map de fin
 FINISH= pygame.transform.scale(FINISH_1, (WIDTH, HEIGHT))
 
 che2_1=pygame.image.load("image/deuxchemin.jpg").convert()#Map du chemin a deux issus
@@ -45,6 +45,10 @@ toutdroit2 = pygame.transform.scale(toutdroit2_2, (WIDTH, HEIGHT))
 
 droit_1=pygame.image.load("image/droit.jpg").convert()
 droit = pygame.transform.scale(droit_1, (WIDTH, HEIGHT))
+
+affiche_1=pygame.image.load("image/affiche_beige.jpg").convert()
+affiche_2=pygame.transform.rotate(affiche_1,+90)
+affiche = pygame.transform.scale(affiche_2, (450, 200))
 
 PERSO_WIDTH, PERSO_HEIGHT = (100, 140) #dimension perso
 
@@ -195,41 +199,38 @@ def main():
 
                 print(map_1)
 
-                FENETRE.blit(droit, (0, 0))#affichage de la map de depart
-                if perso.y - DIST <= 0:#si l'ordonnée du personnage est inférieure ou égale a 0
-                    if WIDTH-940 <= perso.x <= WIDTH-940+355 and map_haut:#si l'abscisse du personnage est compris entre 60 et 415
+                FENETRE.blit(droit, (0, 0))  #affichage de la map de depart
+                if perso.y - DIST <= 0: #si l'ordonnée du personnage est inférieure ou égale a 0
+                    if WIDTH-940 <= perso.x <= WIDTH-940+355 and map_haut: #si l'abscisse du personnage est compris entre 60 et 415
                         map_gauche+=1 #la variable augmente de 1
 
-                    elif WIDTH-410 <= perso.x <= WIDTH-410+345 and map_haut:#si l'abscisse du personnage est compris entre 590 et 935
+                    elif WIDTH-410 <= perso.x <= WIDTH-410+345 and map_haut: #si l'abscisse du personnage est compris entre 590 et 935
                         map_droite+=1 #la variable augmente de 1
                     map_haut+=1 #la variable augmente de 1
                     perso.y = perso.y + 700 #le personnage retourne en bas 
 
-                if map_haut ==1: #si le personnage a touché le bord du haut
-                    FENETRE.blit(che2, (0, 0)) #affichage de la map a 2 issues
-                    chemin_2 = 1 #la variable augmente de 1
-
-                elif map_haut ==2: #si le personnage a touché 2 fois le bord du haut
+                if map_haut ==1:  #si le personnage a touché le bord du haut
+                    FENETRE.blit(che2, (0, 0))#affichage de la map a 2 issues
+                    chemin_2 = 1  #la variable augmente de 1
+                
+                #Dans la liste map_1 l'indice 1 correspond au choix du chemin de droite et l'indice 2 correspond au choix du chemin de gauche
+                elif map_haut ==2:  #si le personnage a touché 2 fois le bord du haut
                     if map_gauche == 1 and map_1[i]==1: 
                         FENETRE.blit(cul_de_sac, (0,0)) #affichage du cul de sac
-                        culdesac = 1 #la variable augmente de 1
+                        culdesac = 1  #la variable augmente de 1
 
                     elif map_gauche == 1 and map_1[i]==2:
-                        FENETRE.blit(toutdroit, (0, 0)) #affichage d'une map sortie d'intersection
+                        FENETRE.blit(toutdroit2, (0, 0))  #affichage d'une map sortie d'intersection
 
                     elif map_droite == 1 and map_1[i]==1:
-                        FENETRE.blit(toutdroit2, (0,0)) #affichage d'une map sortie d'intersection
+                        FENETRE.blit(toutdroit, (0,0)) #affichage d'une map sortie d'intersection
 
                     elif map_droite == 1 and map_1[i]==2:
-                        FENETRE.blit(cul_de_sac, (0,0)) #affichage du cul de sac
-                        culdesac = 1 #la variable augmente de 1
+                        FENETRE.blit(cul_de_sac, (0,0))  #affichage du cul de sac
+                        culdesac = 1  #la variable augmente de 1
 
                 elif culdesac == 1: #si le personnage est dans un cul de sac
                     FENETRE.blit(game_over, (0, 0))#affichage de l'image Game over
-                    FENETRE.blit(TIMEWIN,(WIDTH-700,HEIGHT-500))#affichage de l'image pour le meilleur temps
-                    FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))#affichage de l'image horloge
-                    FENETRE.blit(score , (WIDTH-630,HEIGHT-525))#texte temps
-                    FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))#texte meilleur temps
                     game_over_45 = 1 #la variable passe à 1
                     i=0 #i revient a 0
 
@@ -245,18 +246,18 @@ def main():
                                 culdesac = 0
                                 i = 0
                                 tZero=time.time() #Récupération de tZero
-
-                        elif event.type == pygame.KEYDOWN:
-                            if event.key == K_RETURN:#si on appuie sur "Entrée" les variables retournent à 0 et on arrive sur l'écran principal car niveau 1 devient false
-                                niveau1 = False
-                                game_over_45 = 0
-                                map_gauche = 0
-                                map_droite = 0
-                                map_haut = 0
-                                map_bas = 0
-                                culdesac = 0
-                                i = 0
-                                tZero=time.time()
+                        else:
+                            if event.type == pygame.KEYDOWN:
+                                if event.key == K_RETURN:#si on appuie sur "Entrée" les variables retournent à 0 et on arrive sur l'écran principal car niveau 1 devient false
+                                    niveau1 = False
+                                    game_over_45 = 0
+                                    map_gauche = 0
+                                    map_droite = 0
+                                    map_haut = 0
+                                    map_bas = 0
+                                    culdesac = 0
+                                    i = 0
+                                    tZero=time.time()
 
 
                 else :
@@ -269,6 +270,11 @@ def main():
 
                 if i >= 7 : #si l'indice est superieur ou égale à 7
                     FENETRE.blit(FINISH, (0,0)) #affichage de la map d'arrivé
+                    FENETRE.blit(affiche,(250,120))#affichage de l'image affiche beige
+                    FENETRE.blit(TIMEWIN,(WIDTH-700,HEIGHT-500))#affichage de l'image pour le meilleur temps
+                    FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))#affichage de l'image horloge
+                    FENETRE.blit(score , (WIDTH-630,HEIGHT-525))#texte temps
+                    FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))#texte meilleur temps
                     if event.type == pygame.KEYDOWN:
                         if event.key == K_RETURN:
                             niveau1 = False
@@ -283,13 +289,13 @@ def main():
                                 map_1.append(random.choice([1, 2]))
                             i = 0
 
-                if game_over_45 != 1: #si le joeur n'a pas perdu
+                if game_over_45 != 1: #si le joueur n'a pas perdu
                     keys_pressed = pygame.key.get_pressed()
                     perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
                     FENETRE.blit(PERSO, (perso.x, perso.y)) #affichage de l'avatar
                     Start_time=time.time()#temps depart
                     Actual_time=Start_time-tZero #calcul du temps
-                    texts = smallfont.render(str(round(Actual_time)), True, (255,255,255))#transformation du temps en texte
+                    texts = smallfont.render(str(round(Actual_time)), True, WHITE )#transformation du temps en texte
                     pygame.draw.rect(FENETRE,ROSE,[WIDTH-999,HEIGHT-690,62,30])#creation zone pour affichage temps
                     FENETRE.blit(texts,(20,10))#affichage du chronomètre
                     FENETRE.blit(TIME, (0,15))#affichage icone horloge
@@ -317,10 +323,10 @@ def main():
                         culdesac = 1
 
                     elif map_gauche == 1 and map_1[i]==2:
-                        FENETRE.blit(toutdroit, (0, 0))
+                        FENETRE.blit(toutdroit2, (0, 0))
 
                     elif map_droite == 1 and map_1[i]==1:
-                        FENETRE.blit(toutdroit2, (0,0))
+                        FENETRE.blit(toutdroit, (0,0))
 
                     elif map_droite == 1 and map_1[i]==2:
                         FENETRE.blit(cul_de_sac, (0,0))
@@ -328,10 +334,6 @@ def main():
 
                 elif culdesac == 1:
                     FENETRE.blit(game_over, (0, 0))
-                    FENETRE.blit(TIMEWIN,(WIDTH-700,HEIGHT-500))
-                    FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))
-                    FENETRE.blit(score , (WIDTH-630,HEIGHT-525))
-                    FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))
                     game_over_45 = 1
                     i=0
 
@@ -372,6 +374,11 @@ def main():
 
                 if i >= 13 :
                     FENETRE.blit(FINISH, (0,0))
+                    FENETRE.blit(affiche,(250,120))#affichage de l'image affiche beige
+                    FENETRE.blit(TIMEWIN,(WIDTH-700,HEIGHT-500))#affichage de l'image pour le meilleur temps
+                    FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))#affichage de l'image horloge
+                    FENETRE.blit(score , (WIDTH-630,HEIGHT-525))#texte temps
+                    FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))#texte meilleur temps
                     if event.type == pygame.KEYDOWN:
                         if event.key == K_RETURN:
                             niveau2 = False
@@ -425,10 +432,10 @@ def main():
                             culdesac = 1
 
                         elif map_gauche == 1 and map_1[i]==2:
-                            FENETRE.blit(toutdroit, (0, 0))
+                            FENETRE.blit(toutdroit2, (0, 0))
 
                         elif map_droite == 1 and map_1[i]==1:
-                            FENETRE.blit(toutdroit2, (0,0))
+                            FENETRE.blit(toutdroit, (0,0))
 
                         elif map_droite == 1 and map_1[i]==2:
                             FENETRE.blit(cul_de_sac, (0,0))
@@ -436,10 +443,6 @@ def main():
 
                     elif culdesac == 1:
                         FENETRE.blit(game_over, (0, 0))
-                        FENETRE.blit(TIMEWIN,(WIDTH-700,HEIGHT-500))
-                        FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))
-                        FENETRE.blit(score , (WIDTH-630,HEIGHT-525))
-                        FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))
                         game_over_45 = 1
                         i=0
 
@@ -500,7 +503,7 @@ def main():
                             culdesac = 1
 
                         elif map_gauche == 1 and map_3[i]==2:
-                            FENETRE.blit(toutdroit, (0, 0))
+                            FENETRE.blit(toutdroit2, (0, 0))
                             choix.clear()
                             choix.append(random.choice([1,2]))
 
@@ -522,7 +525,7 @@ def main():
                             choix.append(random.choice([1,2]))
 
                         elif map_droite == 1 and map_3[i]==1:
-                            FENETRE.blit(toutdroit2, (0,0))
+                            FENETRE.blit(toutdroit, (0,0))
                             choix.clear()
                             choix.append(random.choice([1,2]))
 
@@ -536,10 +539,6 @@ def main():
 
                     elif culdesac == 1:
                         FENETRE.blit(game_over, (0, 0))
-                        FENETRE.blit(TIMEWIN,(WIDTH-700,HEIGHT-500))
-                        FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))
-                        FENETRE.blit(score , (WIDTH-630,HEIGHT-525))
-                        FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))
                         game_over_45 = 1
                         i=0
 
@@ -580,6 +579,11 @@ def main():
 
                 if i >= 12 :
                     FENETRE.blit(FINISH, (0,0))
+                    FENETRE.blit(affiche,(250,120))#affichage de l'image affiche beige
+                    FENETRE.blit(TIMEWIN,(WIDTH-700,HEIGHT-500))#affichage de l'image pour le meilleur temps
+                    FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))#affichage de l'image horloge
+                    FENETRE.blit(score , (WIDTH-630,HEIGHT-525))#texte temps
+                    FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))#texte meilleur temps
                     if event.type == pygame.KEYDOWN:
                         if event.key == K_RETURN:
                             niveau3 = False
