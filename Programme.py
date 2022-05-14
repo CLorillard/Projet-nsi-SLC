@@ -14,7 +14,7 @@ pygame.display.set_caption("CANDY MAZE")
 FOND_1 = pygame.image.load("image/background.jpg").convert()
 FOND = pygame.transform.scale(FOND_1, (WIDTH, HEIGHT))
 
-game_over_1= pygame.image.load("image/gameover.jpg").convert()
+game_over_1= pygame.image.load("image/newgameover.jpg").convert()
 game_over = pygame.transform.scale(game_over_1, (WIDTH, HEIGHT))
 
 cul_de_sac_1= pygame.image.load("image/culdesac.jpg").convert()
