@@ -96,7 +96,7 @@ text = bigfont.render('?' , True , WHITE)
 score=smallfont.render('TEMPS:' , True , WHITE)
 score2=smallfont.render('MEILLEUR TEMPS:' , True , WHITE)
 
-#Liste des indices necessaires pour gagner selon les niveaux(1/2/3)
+#Listes des valeurs necessaires pour gagner selon les niveaux(1/2/3)
 map_1 = []
 for i in range(7):
     map_1.append(random.choice([1, 2]))
@@ -108,6 +108,11 @@ for i in range(13):
 map_3 = []
 for i in range(12):
     map_3.append(random.choice([1,2,3]))
+
+#Listes des temps par niveau
+temps_1= []
+temps_2= []
+temps_3= []
 
 FPS = 60 #pour pouvoir definir nombre de fois que la boucle tourne par seconde
 
@@ -275,6 +280,10 @@ def main():
                     FENETRE.blit(score , (WIDTH-630,HEIGHT-525))#texte temps
                     FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))#texte meilleur temps
                     FENETRE.blit(texts,(500,175))#affichage du chronomètre
+                    temps_1.append(round(Actual_time))#ajout du temps a la liste
+                    best_temps_1= str(min(temps_1))#calcul du plus petit temps mis à gagner
+                    valeur_meilleur_temps = smallfont.render((best_temps_1), True, WHITE )#creation du texte
+                    FENETRE.blit(valeur_meilleur_temps,(610,222))#affichage du meilleur temps
                     if event.type == pygame.KEYDOWN:
                         if event.key == K_RETURN:
                             niveau1 = False
@@ -381,6 +390,10 @@ def main():
                     FENETRE.blit(score , (WIDTH-630,HEIGHT-525))#texte temps
                     FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))#texte meilleur temps
                     FENETRE.blit(texts,(500,175))#affichage du chronomètre
+                    temps_2.append(round(Actual_time))#ajout du temps a la liste
+                    best_temps_2= str(min(temps_2))#calcul du plus petit temps mis à gagner
+                    valeur_meilleur_temps_2 = smallfont.render((best_temps_2), True, WHITE )#creation de texte
+                    FENETRE.blit(valeur_meilleur_temps_2,(610,222))#affichage du meilleur temps
                     if event.type == pygame.KEYDOWN:
                         if event.key == K_RETURN:
                             niveau2 = False
@@ -486,6 +499,10 @@ def main():
                     FENETRE.blit(score , (WIDTH-630,HEIGHT-525))#texte temps
                     FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))#texte meilleur temps
                     FENETRE.blit(texts,(500,175))#affichage du chronomètre
+                    temps_3.append(round(Actual_time))#ajout du temps de la partie a la liste
+                    best_temps_3= str(min(temps_3))#calcul du plus petit temps mis à gagner
+                    valeur_meilleur_temps_3 = smallfont.render((best_temps_3), True, WHITE )#creation du texte
+                    FENETRE.blit(valeur_meilleur_temps_3,(610,222))#affichage du meilleur temps
                     if event.type == pygame.KEYDOWN:
                         if event.key == K_RETURN:
                             niveau3 = False
@@ -610,6 +627,10 @@ def main():
                         FENETRE.blit(score , (WIDTH-630,HEIGHT-525))#texte temps
                         FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))#texte meilleur temps
                         FENETRE.blit(texts,(500,175))#affichage du chronomètre
+                        temps_3.append(round(Actual_time))#ajout du temps de la partie a la liste
+                        best_temps_3= str(min(temps_3))#calcul du plus petit temps des parties
+                        valeur_meilleur_temps_3 = smallfont.render((best_temps_3), True, WHITE )#creation du texte
+                        FENETRE.blit(valeur_meilleur_temps_3,(610,222))#affichage du meilleur temps
                         if event.type == pygame.KEYDOWN:
                             if event.key == K_RETURN:
                                 niveau3 = False
