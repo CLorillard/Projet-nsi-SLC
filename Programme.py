@@ -118,14 +118,66 @@ FPS = 60 #pour pouvoir definir nombre de fois que la boucle tourne par seconde
 
 #Fonction pour le deplacement du personnage
 def perso_mouvement(keys_pressed,perso):
-    if keys_pressed[pygame.K_LEFT] and perso.x - DIST > 0:  #si flèche gauche pressée et ne sort pas du cadre
-        perso.x -= DIST  #perso se déplace à gauche
-    if keys_pressed[pygame.K_RIGHT]and perso.x + DIST < WIDTH - PERSO_WIDTH:  #si flèche droite pressée et ne sort pas du cadre
-        perso.x += DIST   #perso se déplace  à droite
-    if keys_pressed[pygame.K_UP] and perso.y - DIST > 0:   #si flèche haut pressée et ne sort pas du cadre
-        perso.y -= DIST    #perso se déplace vers le haut
-    if keys_pressed[pygame.K_DOWN] and perso.y + DIST < HEIGHT - PERSO_HEIGHT:   #si flèche bas pressée et ne sort pas du cadre
-        perso.y += DIST    #perso se déplace vers le bas
+    if perso.y > 360 :
+        if keys_pressed[pygame.K_UP] and perso.y - DIST > 0:
+            perso.y -= DIST
+        if keys_pressed[pygame.K_DOWN] and perso.y + DIST < HEIGHT - PERSO_HEIGHT:
+            perso.y += DIST
+        if keys_pressed[pygame.K_LEFT] and perso.x > 321:
+            perso.x -= DIST
+        if keys_pressed[pygame.K_RIGHT]and perso.x + 100 < 669:
+            perso.x += DIST
+
+    elif perso.y < 120 :
+        if perso.x > 505 :
+
+            if keys_pressed[pygame.K_UP] and (perso.x + 450-1000)*(-1.55) < perso.y :
+                perso.y -= DIST
+            if keys_pressed[pygame.K_DOWN] and 1.33*(perso.x +60) > perso.y + 180 and -1.47*(perso.x-1000) > perso.y + 300 :
+                perso.y += DIST
+            if keys_pressed[pygame.K_LEFT] and (perso.x + 450-1000)*(-1.55) < perso.y:
+                perso.x -= DIST
+            if keys_pressed[pygame.K_RIGHT] and -1.47*(perso.x-1000) > perso.y + 300  :
+                perso.x += DIST
+        else:
+            if keys_pressed[pygame.K_UP] and (perso.x-250 )*1.33 < perso.y+150:
+                perso.y -= DIST
+            if keys_pressed[pygame.K_DOWN] and 1.33*(perso.x +60) > perso.y + 180 and -1.47*(perso.x-1000) > perso.y + 300 :
+                perso.y += DIST
+            if keys_pressed[pygame.K_LEFT] and 1.33*(perso.x +60) > perso.y + 180:
+                perso.x -= DIST
+            if keys_pressed[pygame.K_RIGHT] and (perso.x-250 )*1.33 < perso.y+150:
+                perso.x += DIST
+    else :
+        if keys_pressed[pygame.K_UP]  :
+            perso.y -= DIST
+        if keys_pressed[pygame.K_DOWN] and 1.33*(perso.x +60) > perso.y + 180 and -1.47*(perso.x-1000) > perso.y + 300 :
+            perso.y += DIST
+        if keys_pressed[pygame.K_LEFT] and 1.33*(perso.x +60) > perso.y + 180:
+            perso.x -= DIST
+        if keys_pressed[pygame.K_RIGHT] and -1.47*(perso.x-1000) > perso.y + 300  :
+            perso.x += DIST
+
+def perso_mouvement_2(keys_pressed,perso):
+    if perso.y > 360 :
+        if keys_pressed[pygame.K_UP] and perso.y - DIST > 0:
+            perso.y -= DIST
+        if keys_pressed[pygame.K_DOWN] and perso.y + DIST < HEIGHT - PERSO_HEIGHT:
+            perso.y += DIST
+        if keys_pressed[pygame.K_LEFT] and perso.x > 321:
+            perso.x -= DIST
+        if keys_pressed[pygame.K_RIGHT]and perso.x + 100 < 669:
+            perso.x += DIST
+
+    else :
+        if keys_pressed[pygame.K_UP]  :
+            perso.y -= DIST
+        if keys_pressed[pygame.K_DOWN] and 1.5*(perso.x -24) > perso.y +50 and -1.7*(perso.x-1000) > perso.y + 300 :
+            perso.y += DIST
+        if keys_pressed[pygame.K_LEFT] and 1.5*(perso.x -24) > perso.y + 50:
+            perso.x -= DIST
+        if keys_pressed[pygame.K_RIGHT] and -1.7*(perso.x-1000) > perso.y + 300 :
+            perso.x += DIST
 
 #Fonction principale
 def main():
@@ -523,7 +575,7 @@ def main():
                 else :
                     FENETRE.blit(droit, (0, 0))
                     keys_pressed = pygame.key.get_pressed()
-                    perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
+                    perso_mouvement_2(keys_pressed,perso)  #appel fonction mouvement perso
                     FENETRE.blit(PERSO, (perso.x, perso.y))
                     if perso.y - DIST <= 0:
                         if WIDTH-1000 <= perso.x <= WIDTH-1000+275 and map_haut:
