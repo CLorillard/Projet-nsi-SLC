@@ -62,7 +62,7 @@ PERSONNAGE = pygame.image.load(os.path.join("image", "perso.png"))
 PERSO = pygame.transform.scale(PERSONNAGE, (PERSO_WIDTH, PERSO_HEIGHT))    #redimensionnage du perso
 
 #Chargement d'icones
-NOTICE_1 = pygame.image.load("image/regles.png").convert() #importation de l'image NOTICE
+NOTICE_1 = pygame.image.load("image/regle.png").convert() #importation de l'image NOTICE
 NOTICE =  pygame.transform.scale(NOTICE_1, (700,300))
 
 NIVEAU_1 = pygame.image.load("image/niveau1.png").convert_alpha() #importation de l'image niveau1
