@@ -186,7 +186,7 @@ def main():
 
         else:
             pygame.draw.rect(FOND,color_dark,[WIDTH-40,HEIGHT-690,40,40]) #crée un rectangle gris foncé si la souris n'est pas dessus
-            #FENETRE.blit(text , (WIDTH-30,HEIGHT-690))#affiche le point d'interrogation sur le rectangle
+            FENETRE.blit(text , (WIDTH-30,HEIGHT-690))#affiche le point d'interrogation sur le rectangle
 
 
         if aide:
@@ -198,7 +198,6 @@ def main():
             if niveau1:#si on a choisis le niveau 1
 
                 print(map_1)
-
                 FENETRE.blit(droit, (0, 0))  #affichage de la map de depart
                 if perso.y - DIST <= 0: #si l'ordonnée du personnage est inférieure ou égale a 0
                     if WIDTH-950 <= perso.x <= WIDTH-950+275 and map_haut: #si l'abscisse du personnage est compris entre 60 et 415
@@ -275,10 +274,12 @@ def main():
                     FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))#affichage de l'image horloge
                     FENETRE.blit(score , (WIDTH-630,HEIGHT-525))#texte temps
                     FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))#texte meilleur temps
+                    FENETRE.blit(texts,(500,175))#affichage du chronomètre
                     if event.type == pygame.KEYDOWN:
                         if event.key == K_RETURN:
                             niveau1 = False
                             i = 0
+                            tZero=time.time() #Récupération de tZero
                             map_gauche = 0
                             map_droite = 0
                             map_haut = 0
@@ -289,7 +290,7 @@ def main():
                                 map_1.append(random.choice([1, 2]))
                             i = 0
 
-                if game_over_45 != 1: #si le joueur n'a pas perdu
+                if game_over_45 != 1 and i < 7: #si le joueur n'a pas perdu
                     keys_pressed = pygame.key.get_pressed()
                     perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
                     FENETRE.blit(PERSO, (perso.x, perso.y)) #affichage de l'avatar
@@ -301,7 +302,6 @@ def main():
                     FENETRE.blit(TIME, (0,15))#affichage icone horloge
 
             elif niveau2:
-
                 print(map_2)
                 FENETRE.blit(droit, (0, 0))  #affichage de la map de depart
                 if perso.y - DIST <= 0: #si l'ordonnée du personnage est inférieure ou égale a 0
@@ -380,6 +380,7 @@ def main():
                     FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))#affichage de l'image horloge
                     FENETRE.blit(score , (WIDTH-630,HEIGHT-525))#texte temps
                     FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))#texte meilleur temps
+                    FENETRE.blit(texts,(500,175))#affichage du chronomètre
                     if event.type == pygame.KEYDOWN:
                         if event.key == K_RETURN:
                             niveau2 = False
@@ -393,8 +394,9 @@ def main():
                             for i in range(7):
                                 map_2.append(random.choice([1, 2]))
                             i = 0
+                            tZero=time.time()
 
-                if game_over_45 != 1:
+                if game_over_45 != 1 and i < 13:
                     keys_pressed = pygame.key.get_pressed()
                     perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
                     FENETRE.blit(PERSO, (perso.x, perso.y))
@@ -406,11 +408,8 @@ def main():
                     FENETRE.blit(TIME, (0,15))#affichage icon horloge
 
             elif niveau3:
-
                 print(map_3)
-
                 FENETRE.blit(droit, (0, 0))
-
                 if choix[0] == 1 and map_3[i] != 3:
                     FENETRE.blit(droit, (0, 0))  #affichage de la map de depart
                     if perso.y - DIST <= 0: #si l'ordonnée du personnage est inférieure ou égale a 0
@@ -486,6 +485,7 @@ def main():
                     FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))#affichage de l'image horloge
                     FENETRE.blit(score , (WIDTH-630,HEIGHT-525))#texte temps
                     FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))#texte meilleur temps
+                    FENETRE.blit(texts,(500,175))#affichage du chronomètre
                     if event.type == pygame.KEYDOWN:
                         if event.key == K_RETURN:
                             niveau3 = False
@@ -609,6 +609,7 @@ def main():
                         FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))#affichage de l'image horloge
                         FENETRE.blit(score , (WIDTH-630,HEIGHT-525))#texte temps
                         FENETRE.blit(score2 , (WIDTH-630,HEIGHT-480))#texte meilleur temps
+                        FENETRE.blit(texts,(500,175))#affichage du chronomètre
                         if event.type == pygame.KEYDOWN:
                             if event.key == K_RETURN:
                                 niveau3 = False
@@ -624,7 +625,7 @@ def main():
                                     map_3.append(random.choice([1, 2, 3]))
                                 i = 0
 
-                if game_over_45 != 1:
+                if game_over_45 != 1 and i < 12:
                     keys_pressed = pygame.key.get_pressed()
                     perso_mouvement(keys_pressed,perso)  #appel fonction mouvement perso
                     FENETRE.blit(PERSO, (perso.x, perso.y))
@@ -640,6 +641,7 @@ def main():
                 FENETRE.blit(NIVEAU1, (200,230))#icone niveau 1
                 FENETRE.blit(NIVEAU2, (400,250))#icone niveau 2
                 FENETRE.blit(NIVEAU3, (600,260))#icone niveau 3
+                tZero=time.time() #Récupération de tZero
 
         pygame.display.update()  # rafraichissement de la page
 
