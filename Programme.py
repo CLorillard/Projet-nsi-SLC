@@ -420,8 +420,9 @@ def main():
                     FENETRE.blit(TIME, (0,15))#affichage icon horloge
 
             elif niveau3:
-                print(map_3)
+                                print(map_3)
                 FENETRE.blit(droit, (0, 0))
+                print(choix)
                 if choix[0] == 1 and map_3[i] != 3:
                     FENETRE.blit(droit, (0, 0))  #affichage de la map de depart
                     if perso.y - DIST <= 0: #si l'ordonnée du personnage est inférieure ou égale a 0
@@ -482,7 +483,8 @@ def main():
                                         culdesac = 0
                                         i = 0
                                         tZero=time.time()
-
+                        choix.clear()
+                        choix.append(random.choice([1,2]))
 
                     else :
                         if map_haut != 0: #si le personnage a touché le bord haut au moins une fois
@@ -490,7 +492,7 @@ def main():
                             map_haut = 0
                             map_droite = 0
                             map_gauche = 0
-                            
+
                 if i >= 12 :
                     FENETRE.blit(FINISH, (0,0))
                     FENETRE.blit(affiche,(250,120))#affichage de l'image affiche beige
