@@ -46,9 +46,9 @@ toutdroit2 = pygame.transform.scale(toutdroit2_2, (WIDTH, HEIGHT))
 droit_1=pygame.image.load("image/droit.jpg").convert()
 droit = pygame.transform.scale(droit_1, (WIDTH, HEIGHT))
 
-#affiche_1=pygame.image.load("image/affiche_beige.jpg").convert()
-#affiche_2=pygame.transform.rotate(affiche_1,+90)
-#affiche = pygame.transform.scale(affiche_2, (450, 200))
+affiche_1=pygame.image.load("image/affiche_beige.jpg").convert()
+affiche_2=pygame.transform.rotate(affiche_1,+90)
+affiche = pygame.transform.scale(affiche_2, (450, 200))
 
 PERSO_WIDTH, PERSO_HEIGHT = (100, 140) #dimension perso
 
@@ -270,7 +270,7 @@ def main():
 
                 if i >= 7 : #si l'indice est superieur ou égale à 7
                     FENETRE.blit(FINISH, (0,0)) #affichage de la map d'arrivé
-                    #FENETRE.blit(affiche,(250,120))#affichage de l'image affiche beige
+                    FENETRE.blit(affiche,(250,120))#affichage de l'image affiche beige
                     FENETRE.blit(TIMEWIN,(WIDTH-700,HEIGHT-500))#affichage de l'image pour le meilleur temps
                     FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))#affichage de l'image horloge
                     FENETRE.blit(score , (WIDTH-630,HEIGHT-525))#texte temps
@@ -375,7 +375,7 @@ def main():
 
                 if i >= 13 : #si l'indice est superieur ou égale à 13
                     FENETRE.blit(FINISH, (0,0)) #affichage de la map d'arrivé
-                    #FENETRE.blit(affiche,(250,120))#affichage de l'image affiche beige
+                    FENETRE.blit(affiche,(250,120))#affichage de l'image affiche beige
                     FENETRE.blit(TIMEWIN,(WIDTH-700,HEIGHT-500))#affichage de l'image pour le meilleur temps
                     FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))#affichage de l'image horloge
                     FENETRE.blit(score , (WIDTH-630,HEIGHT-525))#texte temps
@@ -481,7 +481,7 @@ def main():
                             map_gauche = 0
                 if i >= 12 :
                     FENETRE.blit(FINISH, (0,0))
-                    #FENETRE.blit(affiche,(250,120))#affichage de l'image affiche beige
+                    FENETRE.blit(affiche,(250,120))#affichage de l'image affiche beige
                     FENETRE.blit(TIMEWIN,(WIDTH-700,HEIGHT-500))#affichage de l'image pour le meilleur temps
                     FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))#affichage de l'image horloge
                     FENETRE.blit(score , (WIDTH-630,HEIGHT-525))#texte temps
@@ -604,7 +604,7 @@ def main():
 
                     if i >= 12 :
                         FENETRE.blit(FINISH, (0,0))
-                        #FENETRE.blit(affiche,(250,120))#affichage de l'image affiche beige
+                        FENETRE.blit(affiche,(250,120))#affichage de l'image affiche beige
                         FENETRE.blit(TIMEWIN,(WIDTH-700,HEIGHT-500))#affichage de l'image pour le meilleur temps
                         FENETRE.blit(TIME,(WIDTH-685,HEIGHT-525))#affichage de l'image horloge
                         FENETRE.blit(score , (WIDTH-630,HEIGHT-525))#texte temps
