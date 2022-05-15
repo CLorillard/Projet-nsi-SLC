@@ -10,7 +10,7 @@ C'est un jeu de labyrinthe avec trois niveaux différents du plus simple au plus
 Il faut télécharger les fichiers ```Musique``` et ```image```,ainsi que ```Programme.py``` puis lancer ce dernier dans un IDE
 
 ## **DETAILS DU JEU**
-Jeu en 2D qui se joue seul en utilisant les flèches du clavier(droite,gauche,haut). Le labyrinthe change a chaque partie mais la logique pour gagner reste la même selon le niveau. La musique tourne en boucle de manière a rendre l'expérience plus immersive. 
+Jeu en 2D qui se joue seul en utilisant les flèches du clavier(droite,gauche,haut). Le labyrinthe change une fois la partie gagnée mais reste le même tant que le joueur perd. Chaque niveau est plus complexe que le précédent. La musique tourne en boucle de manière a rendre l'expérience plus immersive. 
 
 ## **LIENS** 
 Exemples programmations : 
