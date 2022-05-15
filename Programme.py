@@ -271,7 +271,6 @@ def main():
                         map_droite = 0
                         map_gauche = 0
 
-
                 if i >= 7 : #si l'indice est superieur ou égale à 7
                     FENETRE.blit(FINISH, (0,0)) #affichage de la map d'arrivé
                     FENETRE.blit(affiche,(250,120))#affichage de l'image affiche beige
@@ -491,6 +490,7 @@ def main():
                             map_haut = 0
                             map_droite = 0
                             map_gauche = 0
+                            
                 if i >= 12 :
                     FENETRE.blit(FINISH, (0,0))
                     FENETRE.blit(affiche,(250,120))#affichage de l'image affiche beige
@@ -594,6 +594,7 @@ def main():
                                     map_droite = 0
                                     map_haut = 0
                                     map_bas = 0
+                                    map_milieu = 0
                                     culdesac = 0
                                     i = 0
                                     tZero=time.time()
@@ -606,6 +607,7 @@ def main():
                                     map_droite = 0
                                     map_haut = 0
                                     map_bas = 0
+                                    map_milieu = 0
                                     culdesac = 0
                                     i = 0
                                     tZero=time.time()
@@ -617,6 +619,7 @@ def main():
                             map_haut = 0
                             map_droite = 0
                             map_gauche = 0
+                            map_milieu = 0
 
 
                     if i >= 12 :
@@ -639,6 +642,7 @@ def main():
                                 map_droite = 0
                                 map_haut = 0
                                 map_bas = 0
+                                map_milieu = 0
                                 culdesac = 0
                                 tZero=time.time()
                                 map_3.clear()
